@@ -1,0 +1,62 @@
+=== 生成的HTML ===
+
+<section style='max-width: 800px; margin: 0 auto; padding: 20px; background: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333;'><div style='text-align: center; padding: 30px 0; border-bottom: 2px solid #eee; margin-bottom: 30px;'><h1 style='font-size: 32px; color: #333; margin-bottom: 10px; font-weight: bold;'>🐒 悟空与AI的爆笑日常 🤖</h1><p style='font-size: 16px; color: #666;'>当齐天大圣遇上现代科技</p></div><div style='margin: 30px 0;'><h2 style='text-align: center; color: #333; margin-bottom: 20px; font-size: 24px; font-weight: bold;'>🎨 四格漫画</h2><div style='text-align: center; margin: 20px 0;'><img src='http://test.url/image.png' style='width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);' alt='悟空与AI的四格漫画' /></div></div><div style='margin: 30px 0;'><h2 style='text-align: center; color: #333; margin-bottom: 20px; font-size: 24px; font-weight: bold;'>📖 剧情介绍</h2><div style='background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;'><div style='margin: 15px 0; padding: 10px; background: white; border-radius: 4px;'><div style='font-weight: bold; color: #2196F3; margin-bottom: 5px;'>第1格</div><div>悟空好奇地看着电脑屏幕，AI小智在一旁讲解。</div><div style='color: #666; margin-top: 5px; font-style: italic;'>💬 悟空（困惑）：这是什么魔法？AI小智：这是AI技术！</div></div><div style='margin: 15px 0; padding: 10px; background: white; border-radius: 4px;'><div style='font-weight: bold; color: #2196F3; margin-bottom: 5px;'>第2格</div><div>悟空尝试操作电脑，结果把电脑搞坏了。</div><div style='color: #666; margin-top: 5px; font-style: italic;'>💬 悟空（惊慌）：它爆炸了！AI小智：你只是按了太多键...</div></div><div style='margin: 15px 0; padding: 10px; background: white; border-radius: 4px;'><div style='font-weight: bold; color: #2196F3; margin-bottom: 5px;'>第3格</div><div>AI小智教悟空使用简单的语音指令。</div><div style='color: #666; margin-top: 5px; font-style: italic;'>💬 AI小智：只要说话就行。悟空：你好，电脑！电脑：你好，悟空！</div></div><div style='margin: 15px 0; padding: 10px; background: white; border-radius: 4px;'><div style='font-weight: bold; color: #2196F3; margin-bottom: 5px;'>第4格</div><div>悟空和AI小智成为好朋友，一起玩耍。</div><div style='color: #666; margin-top: 5px; font-style: italic;'>💬 悟空：AI真好玩！AI小智：我们现在是伙伴啦！</div></div></div></div><div style='margin: 30px 0;'><h2 style='text-align: center; color: #333; margin-bottom: 20px; font-size: 24px; font-weight: bold;'>👥 角色介绍</h2><div style='background: #fff9e6; padding: 20px; border-radius: 8px; margin: 20px 0;'><div style='margin: 10px 0; padding: 10px; background: white; border-radius: 4px;'><div style='font-weight: bold; color: #FF5722; margin-bottom: 5px; font-size: 16px;'>🐒 悟空</div><div>一个身穿绿色战袍、长着猴耳朵的可爱小猴子，尾巴灵活，表情生动，眼睛大大的，充满好奇心。</div></div><div style='margin: 10px 0; padding: 10px; background: white; border-radius: 4px;'><div style='font-weight: bold; color: #FF5722; margin-bottom: 5px; font-size: 16px;'>🤖 AI小智</div><div>一个圆圆的小机器人，白色的身体，红色的头部，眼睛是圆形的屏幕，总是一副认真又有些呆萌的表情。</div></div></div></div><div style='text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #eee; color: #999;'><p style='margin: 5px 0;'>🤖 本漫画由AI自动生成</p><p style='margin: 5px 0;'>剧本生成：智谱GLM-4 | 漫画生成：即梦AI</p><p style='margin: 5px 0;'>发布平台：微信公众号</p></div></section>
+
+=== Preview.html的body部分 ===
+
+<div class="header">
+            <h1>🐒 悟空与AI的爆笑日常 🤖</h1>
+            <p class="subtitle">当齐天大圣遇上现代科技</p>
+        
+
+        <div class="section">
+            <h2>🎨 四格漫画</h2>
+            <div class="comic-container">
+                <img src="four_panel_combined.png" alt="悟空与AI的四格漫画">
+            
+        
+
+        <div class="section">
+            <h2>📖 剧情介绍</h2>
+            <div class="story-section">
+                <div class="story-item">
+                    <div class="panel-number">第1格
+                    <div>悟空好奇地看着电脑屏幕，AI小智在一旁讲解。
+                    <div class="dialogue">💬 悟空（困惑）：这是什么魔法？AI小智：这是AI技术！
+                
+                <div class="story-item">
+                    <div class="panel-number">第2格
+                    <div>悟空尝试操作电脑，结果把电脑搞坏了。
+                    <div class="dialogue">💬 悟空（惊慌）：它爆炸了！AI小智：你只是按了太多键...
+                
+                <div class="story-item">
+                    <div class="panel-number">第3格
+                    <div>AI小智教悟空使用简单的语音指令。
+                    <div class="dialogue">💬 AI小智：只要说话就行。悟空：你好，电脑！电脑：你好，悟空！
+                
+                <div class="story-item">
+                    <div class="panel-number">第4格
+                    <div>悟空和AI小智成为好朋友，一起玩耍。
+                    <div class="dialogue">💬 悟空：AI真好玩！AI小智：我们现在是伙伴啦！
+                
+            
+        
+
+        <div class="section">
+            <h2>👥 角色介绍</h2>
+            <div class="characters-section">
+                <div class="character-item">
+                    <div class="name">🐒 悟空
+                    <div>一个身穿绿色战袍、长着猴耳朵的可爱小猴子，尾巴灵活，表情生动，眼睛大大的，充满好奇心。
+                
+                <div class="character-item">
+                    <div class="name">🤖 AI小智
+                    <div>一个圆圆的小机器人，白色的身体，红色的头部，眼睛是圆形的屏幕，总是一副认真又有些呆萌的表情。
+                
+            
+        
+
+        <div class="footer">
+            <p>🤖 本漫画由AI自动生成</p>
+            <p>剧本生成：智谱GLM-4 | 漫画生成：即梦AI</p>
+            <p>发布平台：微信公众号</p>

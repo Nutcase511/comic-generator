@@ -1,0 +1,21 @@
+# HTTP客户端
+requests>=2.31.0
+httpx>=0.25.0
+
+# 环境变量管理
+python-dotenv>=1.0.0
+
+# 智谱AI SDK
+zhipuai>=2.1.0
+
+# 图像处理
+Pillow>=10.0.0
+
+# 微信公众号SDK
+wechatpy>=1.8.18
+
+# 日志
+loguru>=0.7.2
+
+# 类型提示
+typing-extensions>=4.8.0
