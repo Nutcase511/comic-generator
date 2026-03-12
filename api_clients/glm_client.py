@@ -19,7 +19,8 @@ class GLMClient:
         user_input: str,
         style: str = "cute",
         num_panels: int = 4,
-        character_info: dict = None
+        character_info: dict = None,
+        series_characters: list = None
     ) -> Dict:
         """
         生成四格漫画剧本
@@ -29,6 +30,7 @@ class GLMClient:
             style: 漫画风格
             num_panels: 格数（默认4格）
             character_info: 角色信息（可选）
+            series_characters: 同系列的其他角色（可作为配角）
 
         Returns:
             包含剧本信息的字典
@@ -37,17 +39,21 @@ class GLMClient:
 
         # 构建角色描述部分
         character_desc = ""
+        character_series = ""
+        supporting_characters_desc = ""
+
         if character_info:
             character_name = character_info.get('name', '自定义角色')
             character_description = character_info.get('description', '')
             character_source = character_info.get('source', '')
+            character_series = character_info.get('series', '')
             prompt_keywords = character_info.get('prompt_keywords', '')
 
             character_desc = f"""
 
 【必须严格遵守的角色要求】
 ======================================================
-角色：{character_name}（来自：{character_source}）
+角色：{character_name}（来自：{character_series}）
 角色外貌：{character_description}
 {f'关键词：{prompt_keywords}' if prompt_keywords else ''}
 ======================================================
@@ -64,9 +70,29 @@ class GLMClient:
 
 在下面的每个visual_prompt中，都要以"{character_name}在做什么动作、什么表情"作为开头！"""
 
+            # 如果有同系列的其他角色，添加配角说明
+            if series_characters and len(series_characters) > 0:
+                supporting_characters_desc = f"""
+
+【配角选择规则 - 必须遵守】
+======================================================
+如果剧本中需要其他角色作为配角（如路人、朋友、对手等）：
+- 【必须】从【{character_series}】系列中选择
+- 【禁止】使用其他系列的角色
+- 【禁止】创造不存在的角色名称
+
+【{character_series}】系列可选配角（最多3个）：
+{chr(10).join([f"- {idx+1}. {c.get('name')}: {c.get('description', '')[:50]}" for idx, c in enumerate(series_characters[:6])])}
+======================================================
+
+【重要】：
+- 配角的作用是辅助主角，不应抢戏
+- 如果不需要配角，可以只使用主角一个人
+- 选择配角时，优先选择该系列中最知名的角色"""
+
         prompt = f"""你是一位专业的四格漫画编剧。请根据用户输入的文字，创作一个爆笑四格漫画剧本。
 
-用户输入：{user_input}{character_desc}
+用户输入：{user_input}{character_desc}{supporting_characters_desc}
 
 要求：
 1. 创作一个{num_panels}格漫画的剧本
@@ -76,7 +102,8 @@ class GLMClient:
 5. 对话要简洁，适合漫画呈现
 6. {'使用指定的角色及其特征' if character_info else '设定1-2个主要角色，描述他们的外貌特征'}
 7. **所有格的画面描述（visual_prompt）中都必须包含指定的角色，并详细描述角色的外貌、表情、动作和服装**{'''
-8. 如果角色有明显的特征（如孙悟空的金箍棒、钢铁侠的战甲），必须在visual_prompt中强调这些特征''' if character_info else ''}
+8. 如果需要配角，必须从【{character_series}】系列中选择（见上方的配角列表）''' if series_characters and character_series else ''}
+9. {"禁止创造随机角色名称，必须使用指定系列的角色" if series_characters else "设定合理的角色名称"}
 
 请以JSON格式返回，格式如下：
 {{
@@ -105,7 +132,8 @@ class GLMClient:
 - 每个visual_prompt都必须以角色名称开头
 - 描述要具体：不要说"一个人"，而要说"{character_info.get('name', '角色名称') if character_info else '角色名称'}，穿着[什么服装]，[什么表情]，在[做什么动作]"
 - 如果角色有标志性物品（金箍棒、战甲、草帽等），必须在每个visual_prompt中提及
-- {"visual_prompt长度要超过100字，包含角色、服装、表情、动作、场景、光线、构图等所有细节" if character_info else "visual_prompt要详细，包含所有必要信息"}"""
+- {"visual_prompt长度要超过100字，包含角色、服装、表情、动作、场景、光线、构图等所有细节" if character_info else "visual_prompt要详细，包含所有必要信息"}
+- {"如果需要配角，必须从【"+character_series+"】系列中选择，禁止使用其他系列的角色" if series_characters and character_series else ""}"""
 
         try:
             response = self.client.chat.completions.create(

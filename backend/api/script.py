@@ -60,6 +60,7 @@ async def generate_script(request: GenerateScriptRequest):
 
         # 获取角色信息
         character_info = None
+        series_characters = []
         if request.character_id:
             # 使用预制角色
             backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -73,8 +74,19 @@ async def generate_script(request: GenerateScriptRequest):
                 )
 
             if character_info:
-                logger.info(f"✓ 找到角色信息: {character_info.get('name')} ({character_info.get('source')})")
+                logger.info(f"✓ 找到角色信息: {character_info.get('name')} ({character_info.get('series')})")
                 logger.info(f"  描述: {character_info.get('description', '')[:100]}")
+
+                # 获取同一系列的其他角色作为配角候选
+                character_series = character_info.get('series', '')
+                if character_series:
+                    series_characters = [
+                        c for c in characters
+                        if c.get('series') == character_series and c.get('id') != request.character_id
+                    ]
+                    # 只取前8个作为配角候选，避免prompt太长
+                    series_characters = series_characters[:8]
+                    logger.info(f"  同系列配角候选: {len(series_characters)}个")
             else:
                 logger.warning(f"✗ 未找到角色ID: {request.character_id}")
 
@@ -91,6 +103,7 @@ async def generate_script(request: GenerateScriptRequest):
             user_input=request.input_text,
             style=request.style,
             character_info=character_info,
+            series_characters=series_characters,
             input_type=request.input_type
         )
 

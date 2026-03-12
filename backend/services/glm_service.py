@@ -29,6 +29,7 @@ class GLMService:
         user_input: str,
         style: str = "cute",
         character_info: dict = None,
+        series_characters: list = None,
         input_type: str = "topic"
     ) -> dict:
         """
@@ -38,6 +39,7 @@ class GLMService:
             user_input: 用户输入
             style: 风格
             character_info: 角色信息
+            series_characters: 同系列的其他角色（可作为配角）
             input_type: 输入类型
 
         Returns:
@@ -58,13 +60,14 @@ class GLMService:
             loop = asyncio.get_event_loop()
             client = self._get_client()
 
-            # 调用GLM-4生成，传递character_info参数
+            # 调用GLM-4生成，传递character_info和series_characters参数
             script_data = await loop.run_in_executor(
                 None,
                 lambda: client.generate_comic_script(
                     user_input=prompt,
                     style=style,
-                    character_info=character_info
+                    character_info=character_info,
+                    series_characters=series_characters
                 )
             )
 
