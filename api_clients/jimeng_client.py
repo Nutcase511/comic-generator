@@ -152,9 +152,9 @@ class JimengClient:
             '孙悟空': '孙悟空，齐天大圣，金色毛发，金箍，金箍棒，虎皮裙',
             '钢铁侠': '钢铁侠，托尼·斯塔克，红金色战甲，反应堆发光',
             '路飞': '路飞，草帽路飞，草帽，红色坎肩，短裤',
-            '大雄': '大雄，野比大雄，圆眼镜，短发，黄色衬衫',
-            '柯南': '柯南，江户川柯南，蓝色西装，红色领结，眼镜',
-            '哈利波特': '哈利波特，哈利，圆眼镜，闪电伤疤，巫师长袍',
+            '大雄': '大雄，野比大雄，明亮的黄色头发，黑色圆框眼镜，圆脸，黄色衬衫',
+            '柯南': '柯南，江户川柯南，黑框眼镜，蓝色西装，红色领结',
+            '哈利波特': '哈利波特，哈利，圆框眼镜，闪电疤痕，巫师长袍',
             '悟空': '悟空，龙珠悟空，黑色刺猬发型，橙色道服',
             '艾莎': '艾莎， Elsa，冰雪女王，蓝色长裙，冰晶装饰',
             '蜘蛛侠': '蜘蛛侠，彼得·帕克，红蓝战衣，白色眼睛',
@@ -184,15 +184,21 @@ class JimengClient:
         # 将风格后缀添加到prompt末尾
         style_suffix = styles.get(style, "，可爱Q版风格，高质量，细节丰富")
 
-        # 检查prompt是否已经足够详细
-        if len(prompt) < 50:
-            # 如果prompt太短，添加更多细节描述
-            prompt = prompt + "，全身照，清晰面部，生动表情"
+        # 优化prompt：如果太长，截取前180个字（保持核心信息）
+        if len(prompt) > 180:
+            # 找到第一个句号或逗号位置，保留角色描述
+            first_comma = prompt.find('，', 20)  # 跳过角色名称后的第一个逗号
+            if first_comma > 0:
+                # 保留角色描述部分（前20字内）+ 前180字的内容
+                core_content = prompt[:180]
+                prompt = core_content
+            else:
+                prompt = prompt[:180]
 
         full_prompt = prompt + style_suffix
         task_id = self.submit_task(full_prompt, width, height)
         print(f"  任务ID: {task_id}")
-        print(f"  Prompt长度: {len(full_prompt)} 字符")
+        print(f"  最终Prompt长度: {len(full_prompt)} 字符")
         return self.get_result(task_id)
 
     def generate_four_panel_comic(self, prompts: list, style: str = "cute", base_seed=None) -> list:

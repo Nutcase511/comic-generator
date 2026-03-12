@@ -395,10 +395,16 @@ function App() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <h2 className="text-2xl font-bold mb-4">漫画预览</h2>
-                <div className="grid grid-cols-2 gap-4 mb-6">
+                {/* 使用响应式网格，移动端单列，平板及以上双列 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                   {imageUrls.map((url, index) => (
-                    <div key={index} className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-                      <img src={url} alt={`第${index + 1}格`} className="w-full h-full object-cover" />
+                    <div key={index} className="relative w-full pb-[100%] bg-gray-100 rounded-lg overflow-hidden">
+                      <img
+                        src={url}
+                        alt={`第${index + 1}格`}
+                        className="absolute top-0 left-0 w-full h-full object-contain"
+                        style={{ aspectRatio: '1/1' }}
+                      />
                     </div>
                   ))}
                 </div>
