@@ -33,6 +33,38 @@
       "prompt_keywords": "沙僧, 沙悟净, 胡子, 降妖宝杖, 朴实"
     },
     {
+      "id": "iron_fan_princess",
+      "name": "铁扇公主",
+      "series": "西游记",
+      "series_order": 5,
+      "description": "铁扇公主，美丽优雅的公主装扮，手持芭蕉扇，高贵冷艳的Q版风格",
+      "prompt_keywords": "铁扇公主, 芭蕉扇, 美丽优雅, 公主"
+    },
+    {
+      "id": "chang_e",
+      "name": "嫦娥",
+      "series": "西游记",
+      "series_order": 6,
+      "description": "嫦娥仙子，白色仙裙，飘带，怀抱玉兔，仙气飘飘的Q版女神",
+      "prompt_keywords": "嫦娥, 仙子, 白色仙裙, 玉兔, 仙气飘飘"
+    },
+    {
+      "id": "queen_of_women_kingdom",
+      "name": "女儿国国王",
+      "series": "西游记",
+      "series_order": 7,
+      "description": "女儿国国王，华贵女王服饰，妩媚动人的Q版女王形象",
+      "prompt_keywords": "女儿国国王, 女王, 华贵服饰, 妩媚动人"
+    },
+    {
+      "id": "guanyin",
+      "name": "观音菩萨",
+      "series": "西游记",
+      "series_order": 8,
+      "description": "观音菩萨，白衣飘飘，手持净瓶杨柳，慈悲庄严的Q版菩萨形象",
+      "prompt_keywords": "观音菩萨, 白衣, 净瓶, 杨柳, 慈悲庄严"
+    },
+    {
       "id": "iron_man",
       "name": "钢铁侠",
       "series": "漫威",
@@ -71,6 +103,38 @@
       "series_order": 5,
       "description": "布鲁斯·班纳，绿色巨大身躯，紫色短裤，强壮的Q版风格",
       "prompt_keywords": "绿巨人, 绿色身躯, 紫色短裤, 强壮"
+    },
+    {
+      "id": "black_widow",
+      "name": "黑寡妇",
+      "series": "漫威",
+      "series_order": 6,
+      "description": "娜塔莎·罗曼诺夫，黑色紧身战衣，红色长发，干练帅气的Q版女特工",
+      "prompt_keywords": "黑寡妇, 娜塔莎, 黑色战衣, 红色长发, 女特工"
+    },
+    {
+      "id": "captain_marvel",
+      "name": "惊奇队长",
+      "series": "漫威",
+      "series_order": 7,
+      "description": "卡罗尔·丹弗斯，红蓝黄相间战衣，金色短发，强大自信的Q版女英雄",
+      "prompt_keywords": "惊奇队长, 卡罗尔, 红蓝黄战衣, 金色短发, 女英雄"
+    },
+    {
+      "id": "scarlet_witch",
+      "name": "猩红女巫",
+      "series": "漫威",
+      "series_order": 8,
+      "description": "旺达·马克西莫夫，红色头饰，深红色魔法能量，神秘强大的Q版女巫",
+      "prompt_keywords": "猩红女巫, 旺达, 红色头饰, 深红色魔法, 神秘强大"
+    },
+    {
+      "id": "gwen_stacy",
+      "name": "蜘蛛格温",
+      "series": "漫威",
+      "series_order": 9,
+      "description": "格温·史黛西，黑白粉蜘蛛战衣，金发双马尾，活泼可爱的Q版女蜘蛛侠",
+      "prompt_keywords": "蜘蛛格温, 格温, 黑白粉战衣, 金发双马尾, 女蜘蛛侠"
     },
     {
       "id": "luffy",
@@ -241,6 +305,38 @@
       "prompt_keywords": "特兰克斯, 紫色长发, 长剑, 未来战士"
     },
     {
+      "id": "bulma",
+      "name": "布尔玛",
+      "series": "龙珠",
+      "series_order": 5,
+      "description": "布尔玛，蓝绿色头发，白大褂，科技感眼镜，聪明美丽的Q版科学家",
+      "prompt_keywords": "布尔玛, 蓝绿色头发, 白大褂, 科技眼镜, 聪明美丽"
+    },
+    {
+      "id": "android_18",
+      "name": "18号",
+      "series": "龙珠",
+      "series_order": 6,
+      "description": "人造人18号，金色短发，牛仔服，时尚酷飒的Q版人造人少女",
+      "prompt_keywords": "18号, 人造人, 金色短发, 牛仔服, 时尚酷飒"
+    },
+    {
+      "id": "videl",
+      "name": "比迪丽",
+      "series": "龙珠",
+      "series_order": 7,
+      "description": "比迪丽，黑色长发，红色武术服，活泼勇敢的Q版少女",
+      "prompt_keywords": "比迪丽, 黑色长发, 红色武术服, 活泼勇敢"
+    },
+    {
+      "id": "chi_chi",
+      "name": "琪琪",
+      "series": "龙珠",
+      "series_order": 8,
+      "description": "琪琪，中国传统服饰，紫色长发，温柔贤惠的Q版贤妻良母",
+      "prompt_keywords": "琪琪, 中国传统服饰, 紫色长发, 温柔贤惠"
+    },
+    {
       "id": "elsa",
       "name": "艾莎",
       "series": "冰雪奇缘",
@@ -321,6 +417,22 @@
       "prompt_keywords": "瓦里安, 人类国王, 狮子铠甲, 威严帅气"
     },
     {
+      "id": "tyrande",
+      "name": "泰兰德",
+      "series": "魔兽世界",
+      "series_order": 7,
+      "description": "泰兰德·语风，暗夜精灵祭司，银色长发，月神战袍，高贵神圣的Q版女祭司",
+      "prompt_keywords": "泰兰德, 暗夜精灵, 祭司, 银色长发, 月神战袍, 高贵神圣"
+    },
+    {
+      "id": "alexstrasza",
+      "name": "阿莱克丝塔萨",
+      "series": "魔兽世界",
+      "series_order": 8,
+      "description": "阿莱克丝塔萨，红龙女王，红色龙形化身，威严强大的Q版龙族女王",
+      "prompt_keywords": "阿莱克丝塔萨, 红龙女王, 红色龙形, 威严强大"
+    },
+    {
       "id": "garen",
       "name": "盖伦",
       "series": "英雄联盟",
@@ -369,6 +481,22 @@
       "prompt_keywords": "达雷斯, 诺克萨斯, 斧头, 强壮威猛"
     },
     {
+      "id": "katarina",
+      "name": "卡特琳娜",
+      "series": "英雄联盟",
+      "series_order": 7,
+      "description": "不祥之刃卡特琳娜，红色长发，双刀，狂野帅气的Q版刺客",
+      "prompt_keywords": "卡特琳娜, 红色长发, 双刀, 刺客, 狂野帅气"
+    },
+    {
+      "id": "akali",
+      "name": "阿卡丽",
+      "series": "英雄联盟",
+      "series_order": 8,
+      "description": "暗影之拳阿卡丽，黑色忍者装，双镰，冷酷帅气的Q版忍者少女",
+      "prompt_keywords": "阿卡丽, 黑色忍者装, 双镰, 忍者少女, 冷酷帅气"
+    },
+    {
       "id": "optimus_prime",
       "name": "擎天柱",
       "series": "变形金刚",
@@ -415,6 +543,310 @@
       "series_order": 6,
       "description": "救护车，白色救护车机器人，医疗担当的Q版汽车人",
       "prompt_keywords": "救护车, 白色机器人, 救护车, 医疗"
+    },
+    {
+      "id": "arcee",
+      "name": "阿尔茜",
+      "series": "变形金刚",
+      "series_order": 7,
+      "description": "阿尔茜，粉蓝色跑车机器人，女性汽车人，敏捷美丽的Q版女战士",
+      "prompt_keywords": "阿尔茜, 粉蓝色机器人, 女性汽车人, 敏捷美丽"
+    },
+    {
+      "id": "elita_one",
+      "name": "艾丽塔",
+      "series": "变形金刚",
+      "series_order": 8,
+      "description": "艾丽塔，红色跑车机器人，女性汽车人指挥官，威严帅气的Q版女领袖",
+      "prompt_keywords": "艾丽塔, 红色机器人, 女性汽车人, 指挥官, 威严帅气"
+    },
+    {
+      "id": "chromia",
+      "name": "克洛莉亚",
+      "series": "变形金刚",
+      "series_order": 9,
+      "description": "克洛莉亚，蓝色摩托车机器人，女性汽车人，酷飒勇猛的Q版女战士",
+      "prompt_keywords": "克洛莉亚, 蓝色机器人, 摩托车, 女性汽车人, 酷飒勇猛"
+    },
+    {
+      "id": "moonrise",
+      "name": "月娇",
+      "series": "变形金刚",
+      "series_order": 10,
+      "description": "月娇，白色摩托车机器人，东方风格女性汽车人，优雅美丽的Q版女战士",
+      "prompt_keywords": "月娇, 白色机器人, 摩托车, 女性汽车人, 东方风格, 优雅美丽"
+    },
+    {
+      "id": "seiya",
+      "name": "星矢",
+      "series": "圣斗士星矢",
+      "series_order": 1,
+      "description": "天马座圣斗士星矢，红色长发，天马圣衣，热血勇敢的Q版战士",
+      "prompt_keywords": "星矢, 天马座, 红色长发, 天马圣衣, 热血勇敢"
+    },
+    {
+      "id": "shiryu",
+      "name": "紫龙",
+      "series": "圣斗士星矢",
+      "series_order": 2,
+      "description": "天龙座圣斗士紫龙，黑色长发，天龙圣衣，冷静坚毅的Q版战士",
+      "prompt_keywords": "紫龙, 天龙座, 黑色长发, 天龙圣衣, 冷静坚毅"
+    },
+    {
+      "id": "hyoga",
+      "name": "冰河",
+      "series": "圣斗士星矢",
+      "series_order": 3,
+      "description": "白鸟座圣斗士冰河，金色头发，白鸟圣衣，冷静理性的Q版冰系战士",
+      "prompt_keywords": "冰河, 白鸟座, 金色头发, 白鸟圣衣, 冷静理性"
+    },
+    {
+      "id": "ikki",
+      "name": "一辉",
+      "series": "圣斗士星矢",
+      "series_order": 4,
+      "description": "凤凰座圣斗士一辉，紫色长发，凤凰圣衣，冷酷霸气的Q版战士",
+      "prompt_keywords": "一辉, 凤凰座, 紫色长发, 凤凰圣衣, 冷酷霸气"
+    },
+    {
+      "id": "shun",
+      "name": "瞬",
+      "series": "圣斗士星矢",
+      "series_order": 5,
+      "description": "仙女座圣斗士瞬，绿色短发，仙女圣衣，温柔善良的Q版战士",
+      "prompt_keywords": "瞬, 仙女座, 绿色短发, 仙女圣衣, 温柔善良"
+    },
+    {
+      "id": "saori",
+      "name": "雅典娜",
+      "series": "圣斗士星矢",
+      "series_order": 6,
+      "description": "城户沙织（雅典娜），紫色长发，女神长袍，智慧慈悲的Q版女神",
+      "prompt_keywords": "雅典娜, 沙织, 紫色长发, 女神长袍, 智慧慈悲"
+    },
+    {
+      "id": "marin",
+      "name": "魔铃",
+      "series": "圣斗士星矢",
+      "series_order": 7,
+      "description": "天鹰座圣斗士魔铃，黑色长发，天鹰圣衣，英姿飒爽的Q版女圣斗士",
+      "prompt_keywords": "魔铃, 天鹰座, 黑色长发, 天鹰圣衣, 英姿飒爽"
+    },
+    {
+      "id": "shaina",
+      "name": "莎尔娜",
+      "series": "圣斗士星矢",
+      "series_order": 8,
+      "description": "蛇夫座圣斗士莎尔娜，银色面具，蛇夫圣衣，冷酷强大的Q版女圣斗士",
+      "prompt_keywords": "莎尔娜, 蛇夫座, 银色面具, 蛇夫圣衣, 冷酷强大"
+    },
+    {
+      "id": "wataru",
+      "name": "小渡",
+      "series": "神龙斗士",
+      "series_order": 1,
+      "description": "战部渡（小渡），刺猬发型，红色盔甲，热血勇猛的Q版救世主",
+      "prompt_keywords": "小渡, 战部渡, 刺猬发型, 红色盔甲, 热血勇猛"
+    },
+    {
+      "id": "hibarusan",
+      "name": "华仑",
+      "series": "神龙斗士",
+      "series_order": 2,
+      "description": "忍部华仑，粉色短发，女忍者装，可爱活泼的Q版忍者少女",
+      "prompt_keywords": "华仑, 忍部华仑, 粉色短发, 女忍者装, 可爱活泼"
+    },
+    {
+      "id": "kagemaru",
+      "name": "影丸",
+      "series": "神龙斗士",
+      "series_order": 3,
+      "description": "影丸，黑色忍者服，双刀，冷酷帅气的Q版男忍者",
+      "prompt_keywords": "影丸, 黑色忍者服, 双刀, 冷酷帅气"
+    },
+    {
+      "id": "shinbei",
+      "name": "新兵卫",
+      "series": "神龙斗士",
+      "series_order": 4,
+      "description": "剑部新兵卫，蓝色盔甲，大刀，憨厚可靠的Q版武士",
+      "prompt_keywords": "新兵卫, 剑部新兵卫, 蓝色盔甲, 大刀, 憨厚可靠"
+    },
+    {
+      "id": "sayaka",
+      "name": "小香",
+      "series": "神龙斗士",
+      "series_order": 5,
+      "description": "小香，粉色和服，温柔可爱的Q版少女",
+      "prompt_keywords": "小香, 粉色和服, 温柔可爱"
+    },
+    {
+      "id": "surugibe",
+      "name": "秀助",
+      "series": "神龙斗士",
+      "series_order": 6,
+      "description": "秀助，黄色盔甲，锤子，工匠精神的Q版工匠",
+      "prompt_keywords": "秀助, 黄色盔甲, 锤子, 工匠精神"
+    },
+    {
+      "id": "daichi",
+      "name": "大地",
+      "series": "光能使者",
+      "series_order": 1,
+      "description": "遥大地，红色短发，红色盔甲，阳光开朗的Q版光系战士",
+      "prompt_keywords": "大地, 遥大地, 红色短发, 红色盔甲, 阳光开朗"
+    },
+    {
+      "id": "rabi",
+      "name": "拉比",
+      "series": "光能使者",
+      "series_order": 2,
+      "description": "拉比，猫耳发型，蓝色盔甲，机灵可爱的Q版少女",
+      "prompt_keywords": "拉比, 猫耳发型, 蓝色盔甲, 机灵可爱"
+    },
+    {
+      "id": "hoshiko",
+      "name": "火野子",
+      "series": "光能使者",
+      "series_order": 3,
+      "description": "火野子，火焰发型，热情奔放的Q版火系少女",
+      "prompt_keywords": "火野子, 火焰发型, 热情奔放"
+    },
+    {
+      "id": "gus",
+      "name": "古力",
+      "series": "光能使者",
+      "series_order": 4,
+      "description": "古力，矮小身材，黄色盔甲，忠诚勇敢的Q版地灵族",
+      "prompt_keywords": "古力, 矮小身材, 黄色盔甲, 忠诚勇敢"
+    },
+    {
+      "id": "aqua",
+      "name": "水娜",
+      "series": "光能使者",
+      "series_order": 5,
+      "description": "水娜，蓝色长发，水属性，温柔优雅的Q版水系少女",
+      "prompt_keywords": "水娜, 蓝色长发, 水属性, 温柔优雅"
+    },
+    {
+      "id": "winda",
+      "name": "风姬",
+      "series": "光能使者",
+      "series_order": 6,
+      "description": "风姬，绿色长发，风属性，飘逸自由的Q版风系少女",
+      "prompt_keywords": "风姬, 绿色长发, 风属性, 飘逸自由"
+    },
+    {
+      "id": "felix",
+      "name": "菲力克斯猫",
+      "series": "菲力克斯猫",
+      "series_order": 1,
+      "description": "菲力克斯猫，黑色身体，大眼睛，聪明调皮的Q版黑猫",
+      "prompt_keywords": "菲力克斯猫, 黑色身体, 大眼睛, 聪明调皮"
+    },
+    {
+      "id": "kitty",
+      "name": "凯蒂猫",
+      "series": "菲力克斯猫",
+      "series_order": 2,
+      "description": "凯蒂猫，白色猫咪，粉色蝴蝶结，可爱温柔的Q版白猫",
+      "prompt_keywords": "凯蒂猫, 白色猫咪, 粉色蝴蝶结, 可爱温柔"
+    },
+    {
+      "id": "felix_girlfriend",
+      "name": "菲力克斯女友",
+      "series": "菲力克斯猫",
+      "series_order": 3,
+      "description": "菲力克斯的女友，白色猫咪，粉色裙装，甜美可爱的Q版猫咪少女",
+      "prompt_keywords": "菲力克斯女友, 白色猫咪, 粉色裙装, 甜美可爱"
+    },
+    {
+      "id": "professor",
+      "name": "教授",
+      "series": "菲力克斯猫",
+      "series_order": 4,
+      "description": "教授，眼镜白大褂，科学家的Q版形象",
+      "prompt_keywords": "教授, 眼镜, 白大褂, 科学家"
+    },
+    {
+      "id": "rock_bottom",
+      "name": "岩石底",
+      "series": "菲力克斯猫",
+      "series_order": 5,
+      "description": "岩石底，粗犷的卡通形象，憨厚笨拙的Q版角色",
+      "prompt_keywords": "岩石底, 粗犷, 憨厚笨拙"
+    },
+    {
+      "id": "felix_robot",
+      "name": "机器人",
+      "series": "菲力克斯猫",
+      "series_order": 6,
+      "description": "机器人，金属身体，科技感的Q版机器人",
+      "prompt_keywords": "机器人, 金属身体, 科技感"
+    },
+    {
+      "id": "sakuragi",
+      "name": "樱木花道",
+      "series": "灌篮高手",
+      "series_order": 1,
+      "description": "樱木花道，红色头发，湘北10号球衣，热血冲动的Q版篮球少年",
+      "prompt_keywords": "樱木花道, 红色头发, 湘北10号, 热血冲动"
+    },
+    {
+      "id": "rukawa",
+      "name": "流川枫",
+      "series": "灌篮高手",
+      "series_order": 2,
+      "description": "流川枫，黑色头发，湘北11号球衣，冷酷帅气的Q版篮球天才",
+      "prompt_keywords": "流川枫, 黑色头发, 湘北11号, 冷酷帅气"
+    },
+    {
+      "id": "miyagi",
+      "name": "宫城良田",
+      "series": "灌篮高手",
+      "series_order": 3,
+      "description": "宫城良田，红色短发，湘北9号球衣，敏捷快速的Q版控球后卫",
+      "prompt_keywords": "宫城良田, 红色短发, 湘北9号, 敏捷快速"
+    },
+    {
+      "id": "mitsui",
+      "name": "三井寿",
+      "series": "灌篮高手",
+      "series_order": 4,
+      "description": "三井寿，黑色头发，湘北14号球衣，三分射手Q版形象",
+      "prompt_keywords": "三井寿, 黑色头发, 湘北14号, 三分射手"
+    },
+    {
+      "id": "rukawa_kaede",
+      "name": "赤木刚宪",
+      "series": "灌篮高手",
+      "series_order": 5,
+      "description": "赤木刚宪，光头，湘北4号球衣，队长威严的Q版中锋",
+      "prompt_keywords": "赤木刚宪, 光头, 湘北4号, 队长威严"
+    },
+    {
+      "id": "ayako",
+      "name": "彩子",
+      "series": "灌篮高手",
+      "series_order": 6,
+      "description": "彩子，黑色短发，球队经理，活泼可爱的Q版少女",
+      "prompt_keywords": "彩子, 黑色短发, 球队经理, 活泼可爱"
+    },
+    {
+      "id": "haruko",
+      "name": "晴子",
+      "series": "灌篮高手",
+      "series_order": 7,
+      "description": "赤木晴子，黑色短发，温柔善良的Q版篮球少女",
+      "prompt_keywords": "晴子, 赤木晴子, 黑色短发, 温柔善良"
+    },
+    {
+      "id": "ryota",
+      "name": "洋平",
+      "series": "灌篮高手",
+      "series_order": 8,
+      "description": "水户洋平，平头，樱木军团的Q版好友",
+      "prompt_keywords": "洋平, 水户洋平, 平头, 樱木军团"
     }
   ]
 }
