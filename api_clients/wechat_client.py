@@ -297,7 +297,7 @@ class WeChatClient:
                 img_src = "https://via.placeholder.com/300?text=Panel+" + str(i+1)
 
             html_parts.append(f"<div style='background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px; margin-bottom: 10px;'>")
-            html_parts.append(f"<img src='{img_src}' style='width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block;' />")
+            html_parts.append(f"<img src='{img_src}' style='width: 100%; max-width: 380px; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block; margin: 0 auto;' />")
             html_parts.append("</div>")
             html_parts.append("</div>")
 
@@ -331,7 +331,7 @@ class WeChatClient:
                 img_src = "https://via.placeholder.com/300?text=Panel+" + str(i+1)
 
             html_parts.append(f"<div style='background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px; margin-bottom: 10px;'>")
-            html_parts.append(f"<img src='{img_src}' style='width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block;' />")
+            html_parts.append(f"<img src='{img_src}' style='width: 100%; max-width: 380px; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block; margin: 0 auto;' />")
             html_parts.append("</div>")
             html_parts.append("</div>")
 
