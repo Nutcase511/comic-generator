@@ -52,7 +52,11 @@ async def get_characters():
 async def generate_script(request: GenerateScriptRequest):
     """生成四格漫画剧本"""
     try:
-        logger.info(f"收到剧本生成请求: {request.input_type}, {request.input_text[:50]}...")
+        logger.info(f"收到剧本生成请求:")
+        logger.info(f"  input_type: {request.input_type}")
+        logger.info(f"  input_text: {request.input_text[:100]}...")
+        logger.info(f"  character_id: {request.character_id}")
+        logger.info(f"  style: {request.style}")
 
         # 获取角色信息
         character_info = None
@@ -67,12 +71,20 @@ async def generate_script(request: GenerateScriptRequest):
                     (c for c in characters if c["id"] == request.character_id),
                     None
                 )
+
+            if character_info:
+                logger.info(f"✓ 找到角色信息: {character_info.get('name')} ({character_info.get('source')})")
+                logger.info(f"  描述: {character_info.get('description', '')[:100]}")
+            else:
+                logger.warning(f"✗ 未找到角色ID: {request.character_id}")
+
         elif request.custom_character:
             # 使用自定义角色
             character_info = {
                 "name": request.custom_character,
                 "description": request.custom_character
             }
+            logger.info(f"✓ 使用自定义角色: {request.custom_character}")
 
         # 调用GLM-4生成剧本
         script_data = await glm_service.generate_comic_script(
@@ -83,6 +95,11 @@ async def generate_script(request: GenerateScriptRequest):
         )
 
         logger.info(f"剧本生成成功: {script_data.get('title')}")
+
+        # 检查生成的角色
+        if 'characters' in script_data and script_data['characters']:
+            generated_characters = [c.get('name', 'Unknown') for c in script_data['characters']]
+            logger.info(f"生成的角色: {', '.join(generated_characters)}")
 
         return GenerateScriptResponse(
             success=True,
