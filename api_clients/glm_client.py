@@ -18,7 +18,8 @@ class GLMClient:
         self,
         user_input: str,
         style: str = "cute",
-        num_panels: int = 4
+        num_panels: int = 4,
+        character_info: dict = None
     ) -> Dict:
         """
         生成四格漫画剧本
@@ -27,15 +28,28 @@ class GLMClient:
             user_input: 用户输入的文字
             style: 漫画风格
             num_panels: 格数（默认4格）
+            character_info: 角色信息（可选）
 
         Returns:
             包含剧本信息的字典
         """
         style_desc = config.get_style_prompt(style)
 
+        # 构建角色描述部分
+        character_desc = ""
+        if character_info:
+            character_desc = f"""
+
+角色信息：
+- 角色名称：{character_info.get('name', '自定义角色')}
+- 角色描述：{character_info.get('description', '')}
+- 角色来源：{character_info.get('source', '')}
+
+**重要**：剧本中的主要角色必须是上述指定的角色，所有画面中都要包含该角色的特征！"""
+
         prompt = f"""你是一位专业的四格漫画编剧。请根据用户输入的文字，创作一个爆笑四格漫画剧本。
 
-用户输入：{user_input}
+用户输入：{user_input}{character_desc}
 
 要求：
 1. 创作一个{num_panels}格漫画的剧本
@@ -43,7 +57,9 @@ class GLMClient:
 3. 每格要有：画面描述、角色动作、对话/旁白
 4. 剧情要搞笑、有梗、有反转
 5. 对话要简洁，适合漫画呈现
-6. 设定1-2个主要角色，描述他们的外貌特征
+6. {'使用指定的角色及其特征' if character_info else '设定1-2个主要角色，描述他们的外貌特征'}
+7. **所有格的画面描述（visual_prompt）中都必须包含指定的角色，并详细描述角色的外貌、表情、动作和服装**{'''
+8. 如果角色有明显的特征（如孙悟空的金箍棒、钢铁侠的战甲），必须在visual_prompt中强调这些特征''' if character_info else ''}
 
 请以JSON格式返回，格式如下：
 {{
@@ -60,14 +76,14 @@ class GLMClient:
             "scene_description": "场景描述",
             "character_actions": "角色动作",
             "dialogue": "对话/旁白",
-            "visual_prompt": "详细的画面描述，用于AI绘画生成"
+            "visual_prompt": "详细的画面描述，用于AI绘画生成。必须包含指定角色的完整外观、表情、动作和服装特征"
         }}
     ],
     "script_generation_prompt": "总结你生成这个剧本时使用的提示词",
     "character_generation_prompt": "总结角色设计时使用的提示词"
 }}
 
-注意：visual_prompt要非常详细，包含场景、角色表情、动作、构图等，适合直接用于AI绘画生成。"""
+注意：visual_prompt要非常详细，包含场景、角色表情、动作、构图等，适合直接用于AI绘画生成。{'特别是要准确描述指定角色的外观特征和标志性物品。' if character_info else ''}"""
 
         try:
             response = self.client.chat.completions.create(

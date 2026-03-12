@@ -58,12 +58,13 @@ class GLMService:
             loop = asyncio.get_event_loop()
             client = self._get_client()
 
-            # 调用GLM-4生成
+            # 调用GLM-4生成，传递character_info参数
             script_data = await loop.run_in_executor(
                 None,
                 lambda: client.generate_comic_script(
                     user_input=prompt,
-                    style=style
+                    style=style,
+                    character_info=character_info
                 )
             )
 
@@ -77,19 +78,39 @@ class GLMService:
         """为粘贴模式构建提示词"""
         parts = []
 
-        # 添加角色信息
+        # 添加角色信息（如果有）
         if character_info:
-            parts.append(f"主角：{character_info['name']}")
-            parts.append(f"角色描述：{character_info['description']}")
-            parts.append(f"角色来源：{character_info['source']}")
+            parts.append("=" * 50)
+            parts.append("【重要：指定角色信息】")
+            parts.append("=" * 50)
+            parts.append(f"角色名称：{character_info.get('name', '自定义角色')}")
+            parts.append(f"角色描述：{character_info.get('description', '')}")
+            parts.append(f"角色来源：{character_info.get('source', '')}")
+            if 'prompt_keywords' in character_info:
+                parts.append(f"角色特征关键词：{character_info.get('prompt_keywords', '')}")
+            parts.append("=" * 50)
+            parts.append("")
+            parts.append("【要求】")
+            parts.append("- 将原始文案中的角色替换为上述指定的角色")
+            parts.append("- 在每个画面的visual_prompt中详细描述角色的外貌、表情和动作")
+            parts.append("- 如果角色有标志性物品（如金箍棒、战甲等），必须在画面中体现")
+            parts.append("=" * 50)
+            parts.append("")
 
         # 添加原始文案
-        parts.append(f"原始四格漫画文案：\n{paste_text}")
+        parts.append("【原始四格漫画文案】")
+        parts.append(paste_text)
+        parts.append("")
 
         # 添加指令
-        parts.append("\n请基于以上信息，生成一个完整的四格漫画剧本。")
-        parts.append("保持原始文案的对话内容，但将角色替换为指定的主角。")
-        parts.append("确保输出格式符合四格漫画的标准格式。")
+        parts.append("")
+        parts.append("【创作要求】")
+        parts.append("1. 基于原始文案生成一个完整的四格漫画剧本")
+        parts.append("2. 保持原始文案的对话内容和情节结构")
+        parts.append("3. 确保输出格式符合四格漫画的标准JSON格式")
+        if character_info:
+            parts.append("4. 【最关键】所有格的画面都必须包含指定角色，替换原角色")
+            parts.append("5. visual_prompt中必须详细描述指定角色的外貌、表情、动作和服装特征")
 
         return "\n".join(parts)
 
@@ -97,20 +118,39 @@ class GLMService:
         """为文案生成模式构建提示词"""
         parts = []
 
-        # 添加角色信息
+        # 添加角色信息（如果有）
         if character_info:
-            parts.append(f"主角：{character_info['name']}")
-            parts.append(f"角色描述：{character_info['description']}")
-            parts.append(f"角色来源：{character_info['source']}")
+            parts.append("=" * 50)
+            parts.append("【重要：指定角色信息】")
+            parts.append("=" * 50)
+            parts.append(f"角色名称：{character_info.get('name', '自定义角色')}")
+            parts.append(f"角色描述：{character_info.get('description', '')}")
+            parts.append(f"角色来源：{character_info.get('source', '')}")
+            if 'prompt_keywords' in character_info:
+                parts.append(f"角色特征关键词：{character_info.get('prompt_keywords', '')}")
+            parts.append("=" * 50)
+            parts.append("")
+            parts.append("【要求】")
+            parts.append("- 必须使用上述指定的角色作为主角")
+            parts.append("- 在每个画面的visual_prompt中详细描述角色的外貌、表情和动作")
+            parts.append("- 如果角色有标志性物品（如金箍棒、战甲等），必须在画面中体现")
+            parts.append("=" * 50)
+            parts.append("")
 
         # 添加文案内容
-        parts.append(f"文案内容：\n{copywriting_text}")
+        parts.append("【文案内容】")
+        parts.append(copywriting_text)
+        parts.append("")
 
         # 添加指令
-        parts.append("\n请基于以上文案，生成一个完整的四格漫画剧本。")
-        parts.append("将文案内容转换为标准的四格漫画剧本格式，包含场景描述、角色动作和对话。")
-        parts.append("保持文案的核心思想和幽默感，让剧本适合漫画呈现。")
-        parts.append("确保输出格式符合四格漫画的标准JSON格式。")
+        parts.append("")
+        parts.append("【创作要求】")
+        parts.append("1. 基于以上文案内容，生成一个完整的四格漫画剧本")
+        parts.append("2. 将文案内容转换为标准的四格漫画剧本格式，包含场景描述、角色动作和对话")
+        parts.append("3. 保持文案的核心思想和幽默感，让剧本适合漫画呈现")
+        parts.append("4. 确保输出格式符合四格漫画的标准JSON格式")
+        if character_info:
+            parts.append("5. 【最关键】所有格的画面都必须包含指定角色，并详细描述其特征")
 
         return "\n".join(parts)
 
