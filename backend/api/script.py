@@ -4,6 +4,7 @@
 import sys
 import os
 import json
+from datetime import datetime
 from fastapi import APIRouter, HTTPException, Depends
 from loguru import logger
 
@@ -15,9 +16,13 @@ from models.schemas import (
     GenerateScriptResponse,
     ScriptData,
     CharactersResponse,
-    Character
+    Character,
+    GenerateCopywritingRequest,
+    GenerateCopywritingResponse,
+    CopywritingTopicsResponse
 )
 from services.glm_service import GLMService
+from services.hot_topics_service import hot_topics_service
 
 router = APIRouter()
 
@@ -29,11 +34,9 @@ glm_service = GLMService()
 async def get_characters():
     """获取预制角色列表"""
     try:
-        characters_file = os.path.join(
-            os.path.dirname(__file__),
-            "data",
-            "characters.json"
-        )
+        # 获取backend目录的路径
+        backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        characters_file = os.path.join(backend_dir, "data", "characters.json")
 
         with open(characters_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -55,11 +58,8 @@ async def generate_script(request: GenerateScriptRequest):
         character_info = None
         if request.character_id:
             # 使用预制角色
-            characters_file = os.path.join(
-                os.path.dirname(__file__),
-                "data",
-                "characters.json"
-            )
+            backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            characters_file = os.path.join(backend_dir, "data", "characters.json")
             with open(characters_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 characters = data.get("characters", [])
@@ -93,3 +93,67 @@ async def generate_script(request: GenerateScriptRequest):
     except Exception as e:
         logger.error(f"剧本生成失败: {e}")
         raise HTTPException(status_code=500, detail=f"剧本生成失败: {str(e)}")
+
+
+@router.get("/copywriting-topics", response_model=CopywritingTopicsResponse)
+async def get_copywriting_topics():
+    """获取预设文案主题列表"""
+    try:
+        # 获取backend目录的路径
+        backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        topics_file = os.path.join(backend_dir, "data", "copywriting_topics.json")
+
+        with open(topics_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            topics = data.get("topics", [])
+
+        return CopywritingTopicsResponse(success=True, data=topics)
+    except Exception as e:
+        logger.error(f"获取文案主题列表失败: {e}")
+        raise HTTPException(status_code=500, detail=f"获取文案主题列表失败: {str(e)}")
+
+
+@router.post("/generate-copywriting-options", response_model=GenerateCopywritingResponse)
+async def generate_copywriting_options(request: GenerateCopywritingRequest):
+    """生成文案选项"""
+    try:
+        logger.info(f"收到文案生成请求: {request.topic}")
+
+        # 调用GLM-4生成文案选项
+        copywriting_options = await glm_service.generate_copywriting_options(
+            topic=request.topic
+        )
+
+        logger.info(f"文案生成成功: 生成了 {len(copywriting_options)} 个选项")
+
+        return GenerateCopywritingResponse(
+            success=True,
+            message="文案生成成功",
+            data=copywriting_options
+        )
+
+    except Exception as e:
+        logger.error(f"文案生成失败: {e}")
+        raise HTTPException(status_code=500, detail=f"文案生成失败: {str(e)}")
+
+
+@router.get("/hot-topics")
+async def get_hot_topics():
+    """获取今日热门话题"""
+    try:
+        logger.info("获取热门话题")
+
+        # 获取热门话题
+        topics = await hot_topics_service.fetch_hot_topics()
+
+        logger.info(f"成功获取 {len(topics)} 个热门话题")
+
+        return {
+            "success": True,
+            "data": topics,
+            "timestamp": datetime.now().isoformat()
+        }
+
+    except Exception as e:
+        logger.error(f"获取热门话题失败: {e}")
+        raise HTTPException(status_code=500, detail=f"获取热门话题失败: {str(e)}")

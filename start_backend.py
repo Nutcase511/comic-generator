@@ -5,6 +5,12 @@
 """
 import sys
 import os
+import io
+
+# 设置标准输出编码为 UTF-8
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -15,7 +21,7 @@ from loguru import logger
 # 检查环境变量
 env_file = Path("backend/.env")
 if not env_file.exists():
-    print("⚠️  警告：未找到.env文件")
+    print("警告：未找到.env文件")
     print("请复制 backend/.env.example 为 backend/.env 并填入你的API密钥")
     print("")
     print("命令：")
@@ -27,8 +33,8 @@ if not env_file.exists():
     if response.lower() == 'y':
         import shutil
         shutil.copy("backend/.env.example", "backend/.env")
-        print("✓ .env文件已创建")
-        print("⚠️  请编辑 backend/.env 文件，填入你的API密钥后重新运行")
+        print(".env文件已创建")
+        print("请编辑 backend/.env 文件，填入你的API密钥后重新运行")
         sys.exit(1)
 
 # 切换到backend目录并启动

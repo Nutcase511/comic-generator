@@ -25,7 +25,7 @@ export interface ScriptData {
 }
 
 export interface GenerateScriptRequest {
-  input_type: 'topic' | 'paste'
+  input_type: 'topic' | 'paste' | 'copywriting'
   input_text: string
   character_id?: string
   style?: string
@@ -35,6 +35,47 @@ export interface GenerateScriptResponse {
   success: boolean
   message?: string
   data?: ScriptData
+}
+
+// Copywriting types
+export interface CopywritingOption {
+  id: string
+  title: string
+  content: string
+  tags: string[]
+}
+
+export interface CopywritingTopic {
+  id: string
+  name: string
+  description: string
+}
+
+export interface HotTopic {
+  id: string
+  title: string
+  description: string
+}
+
+export interface GenerateCopywritingRequest {
+  topic: string
+}
+
+export interface GenerateCopywritingResponse {
+  success: boolean
+  message?: string
+  data?: CopywritingOption[]
+}
+
+export interface CopywritingTopicsResponse {
+  success: boolean
+  data?: CopywritingTopic[]
+}
+
+export interface HotTopicsResponse {
+  success: boolean
+  data?: HotTopic[]
+  timestamp?: string
 }
 
 export interface GenerateImageRequest {
@@ -83,7 +124,7 @@ export const api = {
   async getCharacters(): Promise<Character[]> {
     const response = await fetch(`${API_BASE_URL}/script/characters`)
     const data = await response.json()
-    return data.data.characters
+    return data.data || []
   },
 
   // Generate script
@@ -139,6 +180,30 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/history/${historyId}/republish`, {
       method: 'POST',
     })
+    return response.json()
+  },
+
+  // Get copywriting topics
+  async getCopywritingTopics(): Promise<CopywritingTopicsResponse> {
+    const response = await fetch(`${API_BASE_URL}/script/copywriting-topics`)
+    return response.json()
+  },
+
+  // Generate copywriting options
+  async generateCopywriting(request: GenerateCopywritingRequest): Promise<GenerateCopywritingResponse> {
+    const response = await fetch(`${API_BASE_URL}/script/generate-copywriting-options`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(request),
+    })
+    return response.json()
+  },
+
+  // Get hot topics
+  async getHotTopics(): Promise<HotTopicsResponse> {
+    const response = await fetch(`${API_BASE_URL}/script/hot-topics`)
     return response.json()
   },
 }

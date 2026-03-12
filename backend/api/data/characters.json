@@ -1,0 +1,84 @@
+{
+  "characters": [
+    {
+      "id": "wukong",
+      "name": "孙悟空",
+      "source": "西游记",
+      "source_type": "动漫",
+      "description": "齐天大圣孙悟空，身穿黄金战甲，头戴金箍，手持金箍棒，活泼好动的Q版风格",
+      "prompt_keywords": "孙悟空, 齐天大圣, 金箍棒, 金箍, 黄色战甲, 猴子耳朵"
+    },
+    {
+      "id": "iron_man",
+      "name": "钢铁侠",
+      "source": "漫威",
+      "source_type": "电影",
+      "description": "托尼·斯塔克，红色金钢铁甲，圆形发光反应堆，高科技感的Q版风格",
+      "prompt_keywords": "钢铁侠, 托尼·斯塔克, 红色装甲, 反应堆, 高科技"
+    },
+    {
+      "id": "luffy",
+      "name": "路飞",
+      "source": "海贼王",
+      "source_type": "动漫",
+      "description": "蒙奇·D·路飞，草帽，红色背心，短裤，充满活力的Q版风格",
+      "prompt_keywords": "路飞, 草帽, 红色背心, 短裤, 活力"
+    },
+    {
+      "id": "nobita",
+      "name": "大雄",
+      "source": "哆啦A梦",
+      "source_type": "动漫",
+      "description": "野比大雄，圆脸眼镜，黄色短发，身材矮小，可爱的Q版风格",
+      "prompt_keywords": "大雄, 圆脸, 眼镜, 黄色短发"
+    },
+    {
+      "id": "conan",
+      "name": "柯南",
+      "source": "名侦探柯南",
+      "source_type": "动漫",
+      "description": "江户川柯南，黑框眼镜，蓝色小西装，红色领结，侦探风格的Q版",
+      "prompt_keywords": "柯南, 黑框眼镜, 蓝色西装, 红色领结, 侦探"
+    },
+    {
+      "id": "harry_potter",
+      "name": "哈利·波特",
+      "source": "哈利·波特",
+      "source_type": "电影",
+      "description": "哈利·波特，圆框眼镜，闪电疤痕，魔法长袍，手持魔杖的Q版风格",
+      "prompt_keywords": "哈利·波特, 圆框眼镜, 闪电疤痕, 魔法长袍, 魔杖"
+    },
+    {
+      "id": "goku",
+      "name": "悟空（龙珠）",
+      "source": "龙珠",
+      "source_type": "动漫",
+      "description": "孙悟空，黑色刺猬发型，橙色武道服，红色腰带，纯真可爱的Q版风格",
+      "prompt_keywords": "孙悟空, 黑色刺猬发型, 橙色武道服, 红色腰带"
+    },
+    {
+      "id": "elsa",
+      "name": "艾莎",
+      "source": "冰雪奇缘",
+      "source_type": "动画电影",
+      "description": "艾莎女王，蓝色长发，冰雪长裙，冰雪魔法效果的Q版风格",
+      "prompt_keywords": "艾莎, 蓝色长发, 冰雪长裙, 冰雪魔法"
+    },
+    {
+      "id": "spider_man",
+      "name": "蜘蛛侠",
+      "source": "漫威",
+      "source_type": "漫画",
+      "description": "彼得·帕克，红蓝相间蜘蛛战衣，白色大眼睛，敏捷的Q版风格",
+      "prompt_keywords": "蜘蛛侠, 红蓝色战衣, 白色大眼睛"
+    },
+    {
+      "id": "doraemon",
+      "name": "哆啦A梦",
+      "source": "哆啦A梦",
+      "source_type": "动漫",
+      "description": "哆啦A梦，蓝色机器猫，红色鼻子，白色圆手，四次元口袋，Q版风格",
+      "prompt_keywords": "哆啦A梦, 蓝色机器猫, 红色鼻子, 四次元口袋"
+    }
+  ]
+}

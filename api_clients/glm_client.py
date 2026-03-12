@@ -150,6 +150,65 @@ class GLMClient:
             print(f"优化剧本失败: {e}")
             raise
 
+    def generate_copywriting(
+        self,
+        prompt: str
+    ) -> List[Dict]:
+        """
+        生成文案选项
+
+        Args:
+            prompt: 文案生成提示词
+
+        Returns:
+            文案选项列表
+        """
+        try:
+            response = self.client.chat.completions.create(
+                model=config.ZHIPU_MODEL,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "你是一位专业的四格漫画编剧，擅长创作深度思考风格的社会观察文案。"
+                    },
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.8,
+                max_tokens=2500
+            )
+
+            content = response.choices[0].message.content
+
+            # 尝试解析JSON
+            # 如果内容被markdown代码块包裹，需要提取
+            if "```json" in content:
+                content = content.split("```json")[1].split("```")[0].strip()
+            elif "```" in content:
+                content = content.split("```")[1].split("```")[0].strip()
+
+            # 清理可能的数组标记
+            content = content.strip()
+            if content.startswith('[') and content.endswith(']'):
+                copywriting_options = json.loads(content)
+            else:
+                # 尝试提取JSON数组
+                import re
+                json_match = re.search(r'\[.*\]', content, re.DOTALL)
+                if json_match:
+                    copywriting_options = json.loads(json_match.group())
+                else:
+                    raise ValueError("无法从响应中提取JSON数组")
+
+            return copywriting_options
+
+        except json.JSONDecodeError as e:
+            print(f"JSON解析错误: {e}")
+            print(f"原始内容: {content}")
+            raise
+        except Exception as e:
+            print(f"生成文案失败: {e}")
+            raise
+
 
 # 创建全局实例
 glm_client = GLMClient()

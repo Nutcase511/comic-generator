@@ -1,0 +1,34 @@
+{
+  "topics": [
+    {
+      "id": "algorithm",
+      "name": "算法推荐",
+      "description": "信息茧房、推荐算法、认知固化"
+    },
+    {
+      "id": "social_media",
+      "name": "社交媒体",
+      "description": "点赞焦虑、社交比较、虚拟认同"
+    },
+    {
+      "id": "remote_work",
+      "name": "远程办公",
+      "description": "在家办公、工作生活边界、会议疲劳"
+    },
+    {
+      "id": "ai_art",
+      "name": "AI创作",
+      "description": "AI绘画、创作危机、人机协作"
+    },
+    {
+      "id": "smart_phone",
+      "name": "手机依赖",
+      "description": "注意力碎片化、低头族、数字排毒"
+    },
+    {
+      "id": "online_shopping",
+      "name": "网购消费",
+      "description": "直播带货、冲动消费、算法推荐"
+    }
+  ]
+}

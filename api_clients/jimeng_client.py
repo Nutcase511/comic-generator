@@ -87,7 +87,7 @@ class JimengClient:
         else:
             raise Exception(f"HTTP {response.status_code}")
 
-    def get_result(self, task_id: str, max_wait: int = 300) -> bytes:
+    def get_result(self, task_id: str, max_wait: int = 600) -> bytes:
         """获取结果"""
         print(f"  等待完成（最多{max_wait//60}分钟）...")
         start_time = time.time()
@@ -127,13 +127,13 @@ class JimengClient:
                         # 提取图片数据
                         if result_data.get("binary_data_base64") and len(result_data["binary_data_base64"]) > 0:
                             image_data = base64.b64decode(result_data["binary_data_base64"][0])
-                            print(f"  ✓ 从base64获取图片: {len(image_data)} bytes")
+                            print(f"  [OK] 从base64获取图片: {len(image_data)} bytes")
                             return image_data
                         elif result_data.get("image_urls"):
                             image_urls = result_data.get("image_urls")
                             if image_urls and len(image_urls) > 0:
                                 image_url = image_urls[0]
-                                print(f"  ✓ 从URL获取图片...")
+                                print(f"  [OK] 从URL获取图片...")
                                 return requests.get(image_url, timeout=60).content
 
                     else:
@@ -168,10 +168,10 @@ class JimengClient:
                 with open(path, "wb") as f:
                     f.write(data)
                 file_size = len(data)
-                print(f"✓ 完成 ({file_size/1024:.1f} KB)")
+                print(f"[OK] 完成 ({file_size/1024:.1f} KB)")
                 paths.append(path)
             except Exception as e:
-                print(f"✗ 失败: {e}")
+                print(f"[ERROR] 失败: {e}")
                 from PIL import Image, ImageDraw
                 img = Image.new('RGB', (1024, 1024), '#f0f0f0')
                 ImageDraw.Draw(img).rectangle([40, 40, 984, 984], outline='#e74c3c', width=8)

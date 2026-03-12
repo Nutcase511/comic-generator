@@ -10,7 +10,7 @@ from datetime import datetime
 
 class GenerateScriptRequest(BaseModel):
     """生成剧本请求"""
-    input_type: Literal["topic", "paste"] = Field(..., description="输入类型：topic(主题模式) 或 paste(粘贴文案)")
+    input_type: Literal["topic", "paste", "copywriting"] = Field(..., description="输入类型：topic(主题模式), paste(粘贴文案), copywriting(文案生成)")
     input_text: str = Field(..., description="输入内容：主题或文案")
     character_id: Optional[str] = Field(None, description="预制角色ID")
     custom_character: Optional[str] = Field(None, description="自定义角色名称和描述")
@@ -108,3 +108,38 @@ class HistoryDetailResponse(BaseModel):
     """历史记录详情响应"""
     success: bool
     data: Optional[dict] = None
+
+
+# ==================== 文案生成相关模型 ====================
+
+class GenerateCopywritingRequest(BaseModel):
+    """生成文案选项请求"""
+    topic: str = Field(..., description="主题：预设主题ID或自定义主题文本")
+
+
+class CopywritingOption(BaseModel):
+    """文案选项"""
+    id: str
+    title: str
+    content: str
+    tags: List[str] = []
+
+
+class GenerateCopywritingResponse(BaseModel):
+    """生成文案选项响应"""
+    success: bool
+    message: str
+    data: Optional[List[CopywritingOption]] = None
+
+
+class CopywritingTopic(BaseModel):
+    """文案主题"""
+    id: str
+    name: str
+    description: str
+
+
+class CopywritingTopicsResponse(BaseModel):
+    """文案主题列表响应"""
+    success: bool
+    data: List[CopywritingTopic]

@@ -194,9 +194,9 @@ class WeChatClient:
                 print(f"  上传第{i}张图片...", end='', flush=True)
                 media_id, img_url = self.upload_image_with_url(image_path)
                 image_urls.append(img_url)
-                print(f" ✓")
+                print(f" [OK]")
             except Exception as e:
-                print(f" ✗ 失败: {e}")
+                print(f" [FAIL] 失败: {e}")
                 # 如果上传失败，使用本地路径
                 image_urls.append(image_path)
 
@@ -272,14 +272,14 @@ class WeChatClient:
         ]
 
         # 第一行：panel 1 和 2
-        html_parts.append("<table style='width: 100%; border-collapse: collapse;'><tr>")
+        html_parts.append("<table style='width: 100%; border-collapse: collapse; border: none;'><tr>")
         for i in [0, 1]:
             panel = script_data.get("panels", [])[i]
             dialogue = panel.get("dialogue", "").replace("'", "'")
             color_start, color_end, border_color = panel_colors[i]
 
-            html_parts.append("<td style='width: 50%; padding: 10px; vertical-align: top;'>")
-            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 20px; background: linear-gradient(to right, {color_start}, {color_end}); min-height: 400px; display: flex; flex-direction: column; justify-content: space-between;'>")
+            html_parts.append("<td style='width: 50%; padding: 10px; vertical-align: top; border: none;'>")
+            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 20px; background: linear-gradient(to right, {color_start}, {color_end}); height: 450px; display: flex; flex-direction: column; justify-content: space-between;'>")
 
             html_parts.append("<div>")
             html_parts.append(f"<div style='font-weight: bold; color: #ffffff; margin-bottom: 15px; font-size: 18px; text-transform: uppercase; letter-spacing: 2px;'>PANEL {i+1:02d}</div>")
@@ -306,14 +306,14 @@ class WeChatClient:
         html_parts.append("</tr></table>")
 
         # 第二行：panel 3 和 4
-        html_parts.append("<table style='width: 100%; border-collapse: collapse; margin-top: 20px;'><tr>")
+        html_parts.append("<table style='width: 100%; border-collapse: collapse; border: none; margin-top: 20px;'><tr>")
         for i in [2, 3]:
             panel = script_data.get("panels", [])[i]
             dialogue = panel.get("dialogue", "").replace("'", "'")
             color_start, color_end, border_color = panel_colors[i]
 
-            html_parts.append("<td style='width: 50%; padding: 10px; vertical-align: top;'>")
-            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 20px; background: linear-gradient(to right, {color_start}, {color_end}); min-height: 400px; display: flex; flex-direction: column; justify-content: space-between;'>")
+            html_parts.append("<td style='width: 50%; padding: 10px; vertical-align: top; border: none;'>")
+            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 20px; background: linear-gradient(to right, {color_start}, {color_end}); height: 450px; display: flex; flex-direction: column; justify-content: space-between;'>")
 
             html_parts.append("<div>")
             html_parts.append(f"<div style='font-weight: bold; color: #ffffff; margin-bottom: 15px; font-size: 18px; text-transform: uppercase; letter-spacing: 2px;'>PANEL {i+1:02d}</div>")

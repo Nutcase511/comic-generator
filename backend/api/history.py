@@ -5,14 +5,16 @@ import sys
 import os
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, or_
 from loguru import logger
+from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from models.database import get_session
 from models.schemas import HistoryListResponse, HistoryItem, HistoryDetailResponse, PublishToWechatResponse
 from models.database import ComicHistory
+from services.cache_service import cached
 
 router = APIRouter()
 
@@ -21,19 +23,46 @@ router = APIRouter()
 async def get_history_list(
     limit: int = 20,
     offset: int = 0,
+    input_type: str = None,
+    character_id: str = None,
+    search: str = None,
     session: AsyncSession = Depends(get_session)
 ):
-    """获取历史记录列表"""
+    """获取历史记录列表（支持筛选和搜索）"""
     try:
-        # 查询总数
+        # 构建查询条件
+        conditions = []
+
+        if input_type:
+            conditions.append(ComicHistory.input_type == input_type)
+
+        if character_id:
+            conditions.append(ComicHistory.character_id == character_id)
+
+        if search:
+            # 搜索标题或输入文本
+            search_pattern = f"%{search}%"
+            conditions.append(
+                or_(
+                    ComicHistory.title.like(search_pattern),
+                    ComicHistory.input_text.like(search_pattern)
+                )
+            )
+
+        # 查询总数（使用索引优化）
         count_query = select(func.count()).select_from(ComicHistory)
+        if conditions:
+            count_query = count_query.where(*conditions)
+
         total_result = await session.execute(count_query)
         total = total_result.scalar() or 0
 
-        # 查询列表
-        query = select(ComicHistory).order_by(
-            ComicHistory.created_at.desc()
-        ).offset(offset).limit(limit)
+        # 查询列表（使用索引优化）
+        query = select(ComicHistory)
+        if conditions:
+            query = query.where(*conditions)
+
+        query = query.order_by(ComicHistory.created_at.desc()).offset(offset).limit(limit)
 
         result = await session.execute(query)
         history_list = result.scalars().all()
@@ -44,7 +73,7 @@ async def get_history_list(
                 created_at=item.created_at.isoformat(),
                 title=item.title,
                 input_type=item.input_type,
-                character_name=item.character_name,
+                character_name=item.character_name or item.character_id or "未知角色",
                 wechat_media_id=item.wechat_media_id,
                 published_at=item.published_at.isoformat() if item.published_at else None
             )
@@ -131,6 +160,4 @@ async def republish_to_wechat(
         logger.error(f"重新发布失败: {e}")
         raise HTTPException(status_code=500, detail=f"重新发布失败: {str(e)}")
 
-
-from datetime import datetime
 from sqlalchemy import func
