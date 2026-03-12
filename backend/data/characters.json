@@ -3,82 +3,418 @@
     {
       "id": "wukong",
       "name": "孙悟空",
-      "source": "西游记",
-      "source_type": "动漫",
+      "series": "西游记",
+      "series_order": 1,
       "description": "齐天大圣孙悟空，身穿黄金战甲，头戴金箍，手持金箍棒，活泼好动的Q版风格",
       "prompt_keywords": "孙悟空, 齐天大圣, 金箍棒, 金箍, 黄色战甲, 猴子耳朵"
     },
     {
+      "id": "tang_seng",
+      "name": "唐僧",
+      "series": "西游记",
+      "series_order": 2,
+      "description": "唐三藏，身穿红色袈裟，手持禅杖，慈眉善目的Q版僧人形象",
+      "prompt_keywords": "唐僧, 唐三藏, 红色袈裟, 禅杖, 僧人"
+    },
+    {
+      "id": "zhu_bajie",
+      "name": "猪八戒",
+      "series": "西游记",
+      "series_order": 3,
+      "description": "猪八戒，大耳朵，猪鼻子，钉耙，胖胖的可爱Q版形象",
+      "prompt_keywords": "猪八戒, 大耳朵, 猪鼻子, 钉耙, 胖嘟嘟"
+    },
+    {
+      "id": "sha_seng",
+      "name": "沙僧",
+      "series": "西游记",
+      "series_order": 4,
+      "description": "沙悟净，胡子拉碴，手持降妖宝杖，朴实憨厚的Q版形象",
+      "prompt_keywords": "沙僧, 沙悟净, 胡子, 降妖宝杖, 朴实"
+    },
+    {
       "id": "iron_man",
       "name": "钢铁侠",
-      "source": "漫威",
-      "source_type": "电影",
+      "series": "漫威",
+      "series_order": 1,
       "description": "托尼·斯塔克，红色金钢铁甲，圆形发光反应堆，高科技感的Q版风格",
       "prompt_keywords": "钢铁侠, 托尼·斯塔克, 红色装甲, 反应堆, 高科技"
     },
     {
-      "id": "luffy",
-      "name": "路飞",
-      "source": "海贼王",
-      "source_type": "动漫",
-      "description": "蒙奇·D·路飞，草帽，红色背心，短裤，充满活力的Q版风格",
-      "prompt_keywords": "路飞, 草帽, 红色背心, 短裤, 活力"
-    },
-    {
-      "id": "nobita",
-      "name": "大雄",
-      "source": "哆啦A梦",
-      "source_type": "动漫",
-      "description": "野比大雄，短发黑色头发（发型关键特征），圆脸，黑色圆框眼镜，身穿黄色衬衫和短裤，身材矮小，可爱的Q版风格",
-      "prompt_keywords": "大雄, 野比大雄, 黑色短发, 深棕色头发, 黑色圆框眼镜, 圆脸, 矮小身材, 黄色衬衫, 黄色短裤"
-    },
-    {
-      "id": "conan",
-      "name": "柯南",
-      "source": "名侦探柯南",
-      "source_type": "动漫",
-      "description": "江户川柯南，黑框眼镜，蓝色小西装，红色领结，侦探风格的Q版",
-      "prompt_keywords": "柯南, 黑框眼镜, 蓝色西装, 红色领结, 侦探"
-    },
-    {
-      "id": "harry_potter",
-      "name": "哈利·波特",
-      "source": "哈利·波特",
-      "source_type": "电影",
-      "description": "哈利·波特，圆框眼镜，闪电疤痕，魔法长袍，手持魔杖的Q版风格",
-      "prompt_keywords": "哈利·波特, 圆框眼镜, 闪电疤痕, 魔法长袍, 魔杖"
-    },
-    {
-      "id": "goku",
-      "name": "悟空（龙珠）",
-      "source": "龙珠",
-      "source_type": "动漫",
-      "description": "孙悟空，黑色刺猬发型，橙色武道服，红色腰带，纯真可爱的Q版风格",
-      "prompt_keywords": "孙悟空, 黑色刺猬发型, 橙色武道服, 红色腰带"
-    },
-    {
-      "id": "elsa",
-      "name": "艾莎",
-      "source": "冰雪奇缘",
-      "source_type": "动画电影",
-      "description": "艾莎女王，蓝色长发，冰雪长裙，冰雪魔法效果的Q版风格",
-      "prompt_keywords": "艾莎, 蓝色长发, 冰雪长裙, 冰雪魔法"
-    },
-    {
       "id": "spider_man",
       "name": "蜘蛛侠",
-      "source": "漫威",
-      "source_type": "漫画",
+      "series": "漫威",
+      "series_order": 2,
       "description": "彼得·帕克，红蓝相间蜘蛛战衣，白色大眼睛，敏捷的Q版风格",
       "prompt_keywords": "蜘蛛侠, 红蓝色战衣, 白色大眼睛"
     },
     {
+      "id": "captain_america",
+      "name": "美国队长",
+      "series": "漫威",
+      "series_order": 3,
+      "description": "史蒂夫·罗杰斯，蓝色战衣，星星盾牌，英武帅气的Q版形象",
+      "prompt_keywords": "美国队长, 蓝色战衣, 星星盾牌, 英武"
+    },
+    {
+      "id": "thor",
+      "name": "雷神",
+      "series": "漫威",
+      "series_order": 4,
+      "description": "雷神索尔，金发，红色披风，手持雷神之锤，威严的Q版风格",
+      "prompt_keywords": "雷神, 索尔, 金发, 红色披风, 雷神之锤"
+    },
+    {
+      "id": "hulk",
+      "name": "绿巨人",
+      "series": "漫威",
+      "series_order": 5,
+      "description": "布鲁斯·班纳，绿色巨大身躯，紫色短裤，强壮的Q版风格",
+      "prompt_keywords": "绿巨人, 绿色身躯, 紫色短裤, 强壮"
+    },
+    {
+      "id": "luffy",
+      "name": "路飞",
+      "series": "海贼王",
+      "series_order": 1,
+      "description": "蒙奇·D·路飞，草帽，红色背心，短裤，充满活力的Q版风格",
+      "prompt_keywords": "路飞, 草帽, 红色背心, 短裤, 活力"
+    },
+    {
+      "id": "zoro",
+      "name": "索隆",
+      "series": "海贼王",
+      "series_order": 2,
+      "description": "罗罗诺亚·索隆，绿色头发，三把刀，帅气酷炫的Q版剑客",
+      "prompt_keywords": "索隆, 绿色头发, 三把刀, 剑客, 帅气"
+    },
+    {
+      "id": "nami",
+      "name": "娜美",
+      "series": "海贼王",
+      "series_order": 3,
+      "description": "娜美，橙色长发，天候棒，可爱活泼的Q版航海士",
+      "prompt_keywords": "娜美, 橙色长发, 天候棒, 活泼"
+    },
+    {
+      "id": "sanji",
+      "name": "山治",
+      "series": "海贼王",
+      "series_order": 4,
+      "description": "文斯莫克·山治，金色头发，黑色西装，帅气的Q版厨师",
+      "prompt_keywords": "山治, 金色头发, 黑色西装, 厨师, 帅气"
+    },
+    {
+      "id": "nobita",
+      "name": "大雄",
+      "series": "哆啦A梦",
+      "series_order": 1,
+      "description": "野比大雄，短发黑色头发（发型关键特征），圆脸，黑色圆框眼镜，身穿黄色衬衫和短裤，身材矮小，可爱的Q版风格",
+      "prompt_keywords": "大雄, 野比大雄, 黑色短发, 深棕色头发, 黑色圆框眼镜, 圆脸, 矮小身材, 黄色衬衫, 黄色短裤"
+    },
+    {
       "id": "doraemon",
       "name": "哆啦A梦",
-      "source": "哆啦A梦",
-      "source_type": "动漫",
+      "series": "哆啦A梦",
+      "series_order": 2,
       "description": "哆啦A梦，蓝色机器猫，红色鼻子，白色圆手，四次元口袋，Q版风格",
       "prompt_keywords": "哆啦A梦, 蓝色机器猫, 红色鼻子, 四次元口袋"
+    },
+    {
+      "id": "shizuka",
+      "name": "静香",
+      "series": "哆啦A梦",
+      "series_order": 3,
+      "description": "源静香，粉色连衣裙，扎着双马尾，温柔可爱的Q版小女孩",
+      "prompt_keywords": "静香, 粉色连衣裙, 双马尾, 温柔可爱"
+    },
+    {
+      "id": "jaian",
+      "name": "胖虎",
+      "series": "哆啦A梦",
+      "series_order": 4,
+      "description": "刚田武（胖虎），强壮的身材，橙色头发，霸道的Q版小霸王",
+      "prompt_keywords": "胖虎, 刚田武, 强壮, 橙色头发, 霸道"
+    },
+    {
+      "id": "suneo",
+      "name": "小夫",
+      "series": "哆啦A梦",
+      "series_order": 5,
+      "description": "骨川小夫，尖嘴，卷发，富家少爷的Q版形象",
+      "prompt_keywords": "小夫, 骨川小夫, 尖嘴, 卷发, 富家少爷"
+    },
+    {
+      "id": "conan",
+      "name": "柯南",
+      "series": "名侦探柯南",
+      "series_order": 1,
+      "description": "江户川柯南，黑框眼镜，蓝色小西装，红色领结，侦探风格的Q版",
+      "prompt_keywords": "柯南, 黑框眼镜, 蓝色西装, 红色领结, 侦探"
+    },
+    {
+      "id": "kid",
+      "name": "怪盗基德",
+      "series": "名侦探柯南",
+      "series_order": 2,
+      "description": "怪盗基德，白色礼帽，白色披风，单片眼镜，神秘帅气的Q版怪盗",
+      "prompt_keywords": "怪盗基德, 白色礼帽, 白色披风, 单片眼镜, 神秘帅气"
+    },
+    {
+      "id": "ran",
+      "name": "小兰",
+      "series": "名侦探柯南",
+      "series_order": 3,
+      "description": "毛利兰，棕色长发，空手道服，坚强可爱的Q版少女",
+      "prompt_keywords": "小兰, 毛利兰, 棕色长发, 空手道服, 坚强"
+    },
+    {
+      "id": "ayumi",
+      "name": "步美",
+      "series": "名侦探柯南",
+      "series_order": 4,
+      "description": "吉田步美，粉色连衣裙，双马尾，天真可爱的Q版小女孩",
+      "prompt_keywords": "步美, 吉田步美, 粉色连衣裙, 双马尾, 天真可爱"
+    },
+    {
+      "id": "harry_potter",
+      "name": "哈利·波特",
+      "series": "哈利·波特",
+      "series_order": 1,
+      "description": "哈利·波特，圆框眼镜，闪电疤痕，魔法长袍，手持魔杖的Q版风格",
+      "prompt_keywords": "哈利·波特, 圆框眼镜, 闪电疤痕, 魔法长袍, 魔杖"
+    },
+    {
+      "id": "hermione",
+      "name": "赫敏",
+      "series": "哈利·波特",
+      "series_order": 2,
+      "description": "赫敏·格兰杰，棕色卷发，魔法长袍，聪明智慧的Q版女巫",
+      "prompt_keywords": "赫敏, 棕色卷发, 魔法长袍, 聪明智慧"
+    },
+    {
+      "id": "ron",
+      "name": "罗恩",
+      "series": "哈利·波特",
+      "series_order": 3,
+      "description": "罗恩·韦斯莱，红色头发，雀斑，忠诚可爱的Q版巫师",
+      "prompt_keywords": "罗恩, 红色头发, 雀斑, 忠诚可爱"
+    },
+    {
+      "id": "dumbledore",
+      "name": "邓布利多",
+      "series": "哈利·波特",
+      "series_order": 4,
+      "description": "阿白思·邓布利多，白色长胡须，半月形眼镜，蓝色魔法长袍，睿智的Q版巫师",
+      "prompt_keywords": "邓布利多, 白色长胡须, 半月形眼镜, 蓝色魔法长袍, 睿智"
+    },
+    {
+      "id": "goku",
+      "name": "悟空（龙珠）",
+      "series": "龙珠",
+      "series_order": 1,
+      "description": "孙悟空，黑色刺猬发型，橙色武道服，红色腰带，纯真可爱的Q版风格",
+      "prompt_keywords": "孙悟空, 黑色刺猬发型, 橙色武道服, 红色腰带"
+    },
+    {
+      "id": "vegeta",
+      "name": "贝吉塔",
+      "series": "龙珠",
+      "series_order": 2,
+      "description": "贝吉塔，火焰发型，蓝色战斗服，高傲帅气的Q版赛亚人王子",
+      "prompt_keywords": "贝吉塔, 火焰发型, 蓝色战斗服, 高傲帅气"
+    },
+    {
+      "id": "piccolo",
+      "name": "比克",
+      "series": "龙珠",
+      "series_order": 3,
+      "description": "比克，绿色皮肤，白色披风，天线，神秘的Q版那美克星人",
+      "prompt_keywords": "比克, 绿色皮肤, 白色披风, 天线, 神秘"
+    },
+    {
+      "id": "trunks",
+      "name": "特兰克斯",
+      "series": "龙珠",
+      "series_order": 4,
+      "description": "特兰克斯，紫色长发，背着长剑，未来战士的Q版形象",
+      "prompt_keywords": "特兰克斯, 紫色长发, 长剑, 未来战士"
+    },
+    {
+      "id": "elsa",
+      "name": "艾莎",
+      "series": "冰雪奇缘",
+      "series_order": 1,
+      "description": "艾莎女王，蓝色长发，冰雪长裙，冰雪魔法效果的Q版风格",
+      "prompt_keywords": "艾莎, 蓝色长发, 冰雪长裙, 冰雪魔法"
+    },
+    {
+      "id": "anna",
+      "name": "安娜",
+      "series": "冰雪奇缘",
+      "series_order": 2,
+      "description": "安娜公主，绿色连衣裙，活泼开朗的Q版公主形象",
+      "prompt_keywords": "安娜, 绿色连衣裙, 活泼开朗, 公主"
+    },
+    {
+      "id": "olaf",
+      "name": "雪宝",
+      "series": "冰雪奇缘",
+      "series_order": 3,
+      "description": "雪宝，白色雪人，胡萝卜鼻子，可爱呆萌的Q版形象",
+      "prompt_keywords": "雪宝, 白色雪人, 胡萝卜鼻子, 呆萌"
+    },
+    {
+      "id": "kristoff",
+      "name": "克里斯托夫",
+      "series": "冰雪奇缘",
+      "series_order": 4,
+      "description": "克里斯托夫，雪山工人服装，忠诚勇敢的Q版形象",
+      "prompt_keywords": "克里斯托夫, 工人服装, 忠诚勇敢"
+    },
+    {
+      "id": "arthas",
+      "name": "阿尔萨斯",
+      "series": "魔兽世界",
+      "series_order": 1,
+      "description": "阿尔萨斯（巫妖王），蓝色铠甲，魔剑霜之哀伤，邪恶冷酷的Q版风格",
+      "prompt_keywords": "阿尔萨斯, 巫妖王, 蓝色铠甲, 霜之哀伤, 邪恶冷酷"
+    },
+    {
+      "id": "illidan",
+      "name": "伊利丹",
+      "series": "魔兽世界",
+      "series_order": 2,
+      "description": "伊利丹·怒风，恶魔双角，眼罩，双刀埃辛诺斯战刃，叛逆帅气的Q版风格",
+      "prompt_keywords": "伊利丹, 恶魔双角, 眼罩, 双刀, 叛逆帅气"
+    },
+    {
+      "id": "thrall",
+      "name": "萨尔",
+      "series": "魔兽世界",
+      "series_order": 3,
+      "description": "萨尔，绿色兽人，穿着萨满长袍，手持武器，睿智强大的Q版萨满",
+      "prompt_keywords": "萨尔, 绿色兽人, 萨满长袍, 睿智强大"
+    },
+    {
+      "id": "jaina",
+      "name": "吉安娜",
+      "series": "魔兽世界",
+      "series_order": 4,
+      "description": "吉安娜·普罗德摩尔，金发法师，魔法长袍，强大美丽的Q版法师",
+      "prompt_keywords": "吉安娜, 金发, 魔法长袍, 强大美丽"
+    },
+    {
+      "id": "sylvanas",
+      "name": "希尔瓦娜斯",
+      "series": "魔兽世界",
+      "series_order": 5,
+      "description": "希尔瓦娜斯·风行者，暗夜精灵游侠，黑色盔甲，冷酷神秘的Q版形象",
+      "prompt_keywords": "希尔瓦娜斯, 暗夜精灵, 黑色盔甲, 冷酷神秘"
+    },
+    {
+      "id": "varian",
+      "name": "瓦里安",
+      "series": "魔兽世界",
+      "series_order": 6,
+      "description": "瓦里安·乌瑞恩，人类国王，金色狮子铠甲，威严帅气的Q版国王",
+      "prompt_keywords": "瓦里安, 人类国王, 狮子铠甲, 威严帅气"
+    },
+    {
+      "id": "garen",
+      "name": "盖伦",
+      "series": "英雄联盟",
+      "series_order": 1,
+      "description": "德玛西亚之力盖伦，重型铠甲，大剑，正义威严的Q版战士",
+      "prompt_keywords": "盖伦, 德玛西亚, 重型铠甲, 大剑, 正义威严"
+    },
+    {
+      "id": "ahri",
+      "name": "阿狸",
+      "series": "英雄联盟",
+      "series_order": 2,
+      "description": "九尾妖狐阿狸，白色毛茸茸耳朵，粉色衣服，可爱迷人的Q版法师",
+      "prompt_keywords": "阿狸, 九尾狐, 白色耳朵, 粉色衣服, 可爱迷人"
+    },
+    {
+      "id": "teemo",
+      "name": "提莫",
+      "series": "英雄联盟",
+      "series_order": 3,
+      "description": "迅捷斥候提莫，可爱的小个子，戴着帽子，背着包，萌萌的Q版约德尔人",
+      "prompt_keywords": "提莫, 约德尔人, 帽子, 可爱萌萌"
+    },
+    {
+      "id": "yasuo",
+      "name": "亚索",
+      "series": "英雄联盟",
+      "series_order": 4,
+      "description": "疾风剑豪亚索，白色头发，背着长剑，飘逸帅气的Q版剑客",
+      "prompt_keywords": "亚索, 白色头发, 长剑, 风系剑客, 帅气"
+    },
+    {
+      "id": "lux",
+      "name": "拉克丝",
+      "series": "英雄联盟",
+      "series_order": 5,
+      "description": "光辉女郎拉克丝，金色长发，魔法法杖，美丽光明的Q版法师",
+      "prompt_keywords": "拉克丝, 金色长发, 魔法法杖, 美丽光明"
+    },
+    {
+      "id": "darius",
+      "name": "达雷斯",
+      "series": "英雄联盟",
+      "series_order": 6,
+      "description": "诺克萨斯之手达雷斯，重型斧头，强壮威猛的Q版战士",
+      "prompt_keywords": "达雷斯, 诺克萨斯, 斧头, 强壮威猛"
+    },
+    {
+      "id": "optimus_prime",
+      "name": "擎天柱",
+      "series": "变形金刚",
+      "series_order": 1,
+      "description": "擎天柱，红蓝相间的机器人，卡车头造型，正义领袖的Q版风格",
+      "prompt_keywords": "擎天柱, 红蓝机器人, 卡车头, 正义领袖"
+    },
+    {
+      "id": "bumblebee",
+      "name": "大黄蜂",
+      "series": "变形金刚",
+      "series_order": 2,
+      "description": "大黄蜂，黄色小车机器人，活泼可爱的Q版汽车人",
+      "prompt_keywords": "大黄蜂, 黄色机器人, 小汽车, 活泼可爱"
+    },
+    {
+      "id": "megatron",
+      "name": "威震天",
+      "series": "变形金刚",
+      "series_order": 3,
+      "description": "威震天，灰色战斗机机器人，邪恶霸道的Q版霸天虎领袖",
+      "prompt_keywords": "威震天, 灰色机器人, 战斗机, 邪恶霸道"
+    },
+    {
+      "id": "starscream",
+      "name": "红蜘蛛",
+      "series": "变形金刚",
+      "series_order": 4,
+      "description": "红蜘蛛，银灰色战斗机机器人，狡猾反叛的Q版霸天虎",
+      "prompt_keywords": "红蜘蛛, 银灰色机器人, 战斗机, 狡猾反叛"
+    },
+    {
+      "id": "ironhide",
+      "name": "铁皮",
+      "series": "变形金刚",
+      "series_order": 5,
+      "description": "铁皮，黑色重型SUV机器人，稳重强壮的Q版汽车人",
+      "prompt_keywords": "铁皮, 黑色机器人, SUV, 稳重强壮"
+    },
+    {
+      "id": "ratchet",
+      "name": "救护车",
+      "series": "变形金刚",
+      "series_order": 6,
+      "description": "救护车，白色救护车机器人，医疗担当的Q版汽车人",
+      "prompt_keywords": "救护车, 白色机器人, 救护车, 医疗"
     }
   ]
 }

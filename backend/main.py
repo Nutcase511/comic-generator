@@ -16,7 +16,7 @@ from loguru import logger
 from typing import Union
 from contextlib import asynccontextmanager
 
-from api import script, image, wechat, history
+from api import script, image, wechat, history, data
 from models.database import init_db
 
 
@@ -97,6 +97,7 @@ app.include_router(script.router, prefix="/api/script", tags=["剧本生成"])
 app.include_router(image.router, prefix="/api/image", tags=["图片生成"])
 app.include_router(wechat.router, prefix="/api/wechat", tags=["微信发布"])
 app.include_router(history.router, prefix="/api/history", tags=["历史记录"])
+app.include_router(data.router, prefix="/api/data", tags=["静态数据"])
 
 from pathlib import Path
 

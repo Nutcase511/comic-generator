@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Sparkles, FileText, User, Loader2, Lightbulb, TrendingUp } from 'lucide-react'
+import { Sparkles, FileText, Loader2, Lightbulb, TrendingUp } from 'lucide-react'
 import { useAppStore } from '../../stores/appStore'
 import { api } from '../../services/api'
 import { ScriptGenerationSkeleton } from '../Skeleton'
+import CharacterGrid from './CharacterGrid'
 
 interface InputPanelProps {
   onNext: () => void
@@ -28,18 +29,6 @@ export default function InputPanel({ onNext }: InputPanelProps) {
   const [style, setStyle] = useState('搞笑')
   const [isLoading, setIsLoading] = useState(false)
   const [scriptGenStep, setScriptGenStep] = useState<'thinking' | 'writing' | 'polishing'>('thinking')
-  const [characters] = useState([
-    { id: 'wukong', name: '孙悟空', source: '西游记' },
-    { id: 'iron_man', name: '钢铁侠', source: '漫威' },
-    { id: 'luffy', name: '路飞', source: '海贼王' },
-    { id: 'nobita', name: '大雄', source: '哆啦A梦' },
-    { id: 'conan', name: '柯南', source: '名侦探柯南' },
-    { id: 'harry_potter', name: '哈利·波特', source: '哈利波特' },
-    { id: 'goku', name: '悟空', source: '龙珠' },
-    { id: 'elsa', name: '艾莎', source: '冰雪奇缘' },
-    { id: 'spider_man', name: '蜘蛛侠', source: '漫威' },
-    { id: 'doraemon', name: '哆啦A梦', source: '哆啦A梦' },
-  ])
 
   // Copywriting mode state
   const [copywritingTopics, setCopywritingTopics] = useState<CopywritingTopic[]>([])
@@ -226,30 +215,11 @@ export default function InputPanel({ onNext }: InputPanelProps) {
         {/* Topic Mode */}
         {inputType === 'topic' && (
           <div className="space-y-6">
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
-                选择角色
-              </label>
-              <div className="grid grid-cols-5 gap-3">
-                {characters.map((char) => (
-                  <button
-                    key={char.id}
-                    onClick={() => setSelectedCharacter(char.id)}
-                    className={`p-4 rounded-xl border-2 transition-all ${
-                      selectedCharacter === char.id
-                        ? 'border-purple-500 bg-purple-50'
-                        : 'border-gray-200 hover:border-purple-300'
-                    }`}
-                  >
-                    <div className="flex flex-col items-center gap-1">
-                      <User className="w-6 h-6 text-gray-600" />
-                      <span className="text-xs font-medium text-gray-700">{char.name}</span>
-                      <span className="text-xs text-gray-500">{char.source}</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+            <CharacterGrid
+              selectedCharacter={selectedCharacter}
+              onCharacterSelect={setSelectedCharacter}
+              label="选择角色"
+            />
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-3">
@@ -280,30 +250,11 @@ export default function InputPanel({ onNext }: InputPanelProps) {
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
-                选择角色（可选）
-              </label>
-              <div className="grid grid-cols-5 gap-3">
-                {characters.map((char) => (
-                  <button
-                    key={char.id}
-                    onClick={() => setSelectedCharacter(char.id)}
-                    className={`p-4 rounded-xl border-2 transition-all ${
-                      selectedCharacter === char.id
-                        ? 'border-purple-500 bg-purple-50'
-                        : 'border-gray-200 hover:border-purple-300'
-                    }`}
-                  >
-                    <div className="flex flex-col items-center gap-1">
-                      <User className="w-6 h-6 text-gray-600" />
-                      <span className="text-xs font-medium text-gray-700">{char.name}</span>
-                      <span className="text-xs text-gray-500">{char.source}</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+            <CharacterGrid
+              selectedCharacter={selectedCharacter}
+              onCharacterSelect={setSelectedCharacter}
+              label="选择角色（可选）"
+            />
           </div>
         )}
 
