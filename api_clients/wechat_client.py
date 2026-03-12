@@ -207,10 +207,14 @@ class WeChatClient:
         thumb_media_id = self.upload_media(image_paths[0])
 
         # 构建文章数据
+        title = script_data.get('title', 'AI四格漫画')
+        characters = script_data.get('characters', [])
+        character_names = '、'.join([char.get('name', '') for char in characters]) if characters else '原创角色'
+
         article = {
-            "title": f"今日搞笑四格漫画 | {script_data.get('title', 'AI四格漫画')}",
+            "title": f"今日搞笑四格漫画 | {title}",
             "author": "AI漫画君",
-            "digest": "悟空与AI小智的爆笑日常故事",
+            "digest": f"{character_names}的有趣故事，轻松幽默，快乐每一天",
             "content": html_content,
             "content_source_url": "",
             "thumb_media_id": thumb_media_id,
@@ -462,16 +466,34 @@ class WeChatClient:
         html_parts.append("</h2>")
 
         html_parts.append("<div style='background-color: #f5f7fa; padding: 25px; border-radius: 12px; border-left: 5px solid #667eea;'>")
-        html_parts.append("<p style='line-height: 1.9; color: #555; margin-bottom: 10px; padding-left: 20px; font-size: 15px;'><strong>创意来源：</strong>当齐天大圣孙悟空遇上现代AI技术，会碰撞出怎样的火花？本作品通过古代神话人物与现代科技的碰撞，创造出跨越时空的幽默对话。</p>")
-        html_parts.append("<p style='line-height: 1.9; color: #555; margin-bottom: 10px; padding-left: 20px; font-size: 15px;'><strong>表现手法：</strong>采用可爱的Q版风格，让古老的孙悟空形象更具亲和力，同时通过呆萌的AI小智角色，展现科技与传统的有趣互动。</p>")
-        html_parts.append("<p style='line-height: 1.9; color: #555; margin-bottom: 10px; padding-left: 20px; font-size: 15px;'><strong>风格定位：</strong>轻松幽默，老少皆宜，适合在微信等社交平台传播分享。</p>")
+
+        # 动态生成创作理念内容
+        title = script_data.get('title', 'AI四格漫画')
+        characters = script_data.get('characters', [])
+        character_names = '、'.join([char.get('name', '') for char in characters]) if characters else '原创角色'
+
+        # 创意来源
+        creative_source = f"本作品以《{title}》为主题，通过四格漫画的形式展现{character_names}的有趣故事。结合当下热门话题和创意构思，打造出轻松幽默的漫画内容。"
+
+        # 表现手法
+        expression_method = f"采用可爱的Q版风格，让{character_names}形象更具亲和力。通过简洁的画面和生动的对话，传递积极向上的情感和有趣的故事情节。"
+
+        # 风格定位
+        style_positioning = "轻松幽默，老少皆宜，适合在微信等社交平台传播分享，为读者带来欢乐和思考。"
+
+        html_parts.append(f"<p style='line-height: 1.9; color: #555; margin-bottom: 10px; padding-left: 20px; font-size: 15px;'><strong>创意来源：</strong>{creative_source}</p>")
+        html_parts.append(f"<p style='line-height: 1.9; color: #555; margin-bottom: 10px; padding-left: 20px; font-size: 15px;'><strong>表现手法：</strong>{expression_method}</p>")
+        html_parts.append(f"<p style='line-height: 1.9; color: #555; margin-bottom: 10px; padding-left: 20px; font-size: 15px;'><strong>风格定位：</strong>{style_positioning}</p>")
         html_parts.append("</div>")
         html_parts.append("</div>")
 
         # 页脚
+        from datetime import datetime
+        current_date = datetime.now().strftime("%Y-%m-%d")
+
         html_parts.append("<div style='text-align: center; margin-top: 50px; padding: 25px; background-color: #f5f7fa; border-radius: 12px;'>")
         html_parts.append("<p style='color: #666; margin-bottom: 8px; font-size: 14px;'><strong>🤖 AI全自动生成</strong></p>")
-        html_parts.append("<p style='color: #666; margin-bottom: 8px; font-size: 13px;'>生成时间：2026-03-09 · 风格：Q版可爱 · 主题：爆笑日常</p>")
+        html_parts.append(f"<p style='color: #666; margin-bottom: 8px; font-size: 13px;'>生成时间：{current_date} · 风格：Q版可爱 · 主题：{script_data.get('title', '爆笑日常')}</p>")
         html_parts.append("<div style='text-align: center;'>")
         html_parts.append("<span style='background-color: #ffffff; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; color: #667eea; display: inline-block; margin: 5px;'>智谱 GLM-4 Flash</span>")
         html_parts.append("<span style='background-color: #ffffff; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; color: #667eea; display: inline-block; margin: 5px;'>即梦AI</span>")
