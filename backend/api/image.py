@@ -63,6 +63,8 @@ async def generate_images(request: GenerateImagesRequest):
         image_urls = []
         for i, prompt in enumerate(prompts, 1):
             logger.info(f"生成第{i}张图片...")
+            logger.info(f"  Prompt长度: {len(prompt)} 字符")
+            logger.info(f"  Prompt内容: {prompt[:200]}...")  # 打印前200字符用于调试
 
             # 广播开始生成第i张图片
             await broadcast_progress("panel_start", {

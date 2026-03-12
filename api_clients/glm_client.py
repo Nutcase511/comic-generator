@@ -38,14 +38,31 @@ class GLMClient:
         # 构建角色描述部分
         character_desc = ""
         if character_info:
+            character_name = character_info.get('name', '自定义角色')
+            character_description = character_info.get('description', '')
+            character_source = character_info.get('source', '')
+            prompt_keywords = character_info.get('prompt_keywords', '')
+
             character_desc = f"""
 
-角色信息：
-- 角色名称：{character_info.get('name', '自定义角色')}
-- 角色描述：{character_info.get('description', '')}
-- 角色来源：{character_info.get('source', '')}
+【必须严格遵守的角色要求】
+======================================================
+角色：{character_name}（来自：{character_source}）
+角色外貌：{character_description}
+{f'关键词：{prompt_keywords}' if prompt_keywords else ''}
+======================================================
 
-**重要**：剧本中的主要角色必须是上述指定的角色，所有画面中都要包含该角色的特征！"""
+【最关键的要求】
+1. 每一格的画面中心必须是 {character_name}
+2. {character_name} 必须占据画面的主要位置（至少50%）
+3. 必须清晰展现 {character_name} 的面部特征和表情
+4. {character_name} 的服装、发型、标志性物品必须准确呈现
+5. 画面风格不能改变角色的基本特征
+6. 如果是孙悟空：必须有金箍棒、金色的毛发、虎皮裙
+7. 如果是钢铁侠：必须有红金色的战甲、反应堆
+8. 如果是路飞：必须有草帽、红色坎肩、短裤
+
+在下面的每个visual_prompt中，都要以"{character_name}在做什么动作、什么表情"作为开头！"""
 
         prompt = f"""你是一位专业的四格漫画编剧。请根据用户输入的文字，创作一个爆笑四格漫画剧本。
 
@@ -76,14 +93,19 @@ class GLMClient:
             "scene_description": "场景描述",
             "character_actions": "角色动作",
             "dialogue": "对话/旁白",
-            "visual_prompt": "详细的画面描述，用于AI绘画生成。必须包含指定角色的完整外观、表情、动作和服装特征"
+            "visual_prompt": "{'孙悟空，金色的毛发，头戴金箍，手持金箍棒，穿着虎皮裙，[表情]在[场景][做动作]，高清细节' if character_info and character_info.get('name') == '孙悟空' else '钢铁侠，红金色的战甲，胸口的反应堆发光，[表情]在[场景][做动作]，科技感' if character_info and character_info.get('name') == '钢铁侠' else character_info.get('name', '角色') + '，' + character_info.get('description', '具体外貌描述') + '，[表情]在[场景][做动作]' if character_info else '主要角色的详细外貌描述，表情、动作、服装，场景细节'}"
         }}
     ],
     "script_generation_prompt": "总结你生成这个剧本时使用的提示词",
     "character_generation_prompt": "总结角色设计时使用的提示词"
 }}
 
-注意：visual_prompt要非常详细，包含场景、角色表情、动作、构图等，适合直接用于AI绘画生成。{'特别是要准确描述指定角色的外观特征和标志性物品。' if character_info else ''}"""
+【关键提醒】：
+- visual_prompt的每一个字都至关重要，决定了图片生成的效果
+- 每个visual_prompt都必须以角色名称开头
+- 描述要具体：不要说"一个人"，而要说"{character_info.get('name', '角色名称') if character_info else '角色名称'}，穿着[什么服装]，[什么表情]，在[做什么动作]"
+- 如果角色有标志性物品（金箍棒、战甲、草帽等），必须在每个visual_prompt中提及
+- {"visual_prompt长度要超过100字，包含角色、服装、表情、动作、场景、光线、构图等所有细节" if character_info else "visual_prompt要详细，包含所有必要信息"}"""
 
         try:
             response = self.client.chat.completions.create(

@@ -147,10 +147,52 @@ class JimengClient:
 
     def generate_image(self, prompt: str, style: str = "cute", width: int = 2048, height: int = 2048) -> bytes:
         """生成图片"""
-        styles = {"cute": "可爱Q版风格，高质量，细节丰富", "manga": "日漫风格，高质量，精致画工", "simple": "简笔画风格"}
-        full_prompt = f"{styles.get(style, '可爱Q版')}，{prompt}"
+        # 检查prompt是否以特定角色名称开头
+        known_characters = {
+            '孙悟空': '孙悟空，齐天大圣，金色毛发，金箍，金箍棒，虎皮裙',
+            '钢铁侠': '钢铁侠，托尼·斯塔克，红金色战甲，反应堆发光',
+            '路飞': '路飞，草帽路飞，草帽，红色坎肩，短裤',
+            '大雄': '大雄，野比大雄，圆眼镜，短发，黄色衬衫',
+            '柯南': '柯南，江户川柯南，蓝色西装，红色领结，眼镜',
+            '哈利波特': '哈利波特，哈利，圆眼镜，闪电伤疤，巫师长袍',
+            '悟空': '悟空，龙珠悟空，黑色刺猬发型，橙色道服',
+            '艾莎': '艾莎， Elsa，冰雪女王，蓝色长裙，冰晶装饰',
+            '蜘蛛侠': '蜘蛛侠，彼得·帕克，红蓝战衣，白色眼睛',
+            '哆啦A梦': '哆啦A梦，蓝色机器猫，红色鼻子，白色四肢，铃铛'
+        }
+
+        # 检查prompt开头是否包含已知角色
+        character_prefix = ""
+        for char_name, char_desc in known_characters.items():
+            if prompt.startswith(char_name) or char_name in prompt[:20]:
+                character_prefix = char_desc + "，"
+                # 提取原始prompt中的动作部分
+                if '，' in prompt:
+                    action_part = prompt.split('，', 1)[1] if '，' in prompt else prompt
+                    prompt = character_prefix + action_part
+                else:
+                    prompt = character_prefix + prompt
+                break
+
+        # 添加风格后缀（而不是前缀，避免干扰角色信息）
+        styles = {
+            "cute": "，可爱Q版风格，高质量，细节丰富，色彩明亮",
+            "manga": "，日漫风格，高质量，精致画工，线条流畅",
+            "simple": "，简笔画风格，简洁明了"
+        }
+
+        # 将风格后缀添加到prompt末尾
+        style_suffix = styles.get(style, "，可爱Q版风格，高质量，细节丰富")
+
+        # 检查prompt是否已经足够详细
+        if len(prompt) < 50:
+            # 如果prompt太短，添加更多细节描述
+            prompt = prompt + "，全身照，清晰面部，生动表情"
+
+        full_prompt = prompt + style_suffix
         task_id = self.submit_task(full_prompt, width, height)
         print(f"  任务ID: {task_id}")
+        print(f"  Prompt长度: {len(full_prompt)} 字符")
         return self.get_result(task_id)
 
     def generate_four_panel_comic(self, prompts: list, style: str = "cute", base_seed=None) -> list:
