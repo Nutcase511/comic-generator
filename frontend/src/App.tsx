@@ -308,12 +308,33 @@ function App() {
                 <div className="mb-4">
                   <h3 className="text-xl font-semibold text-gray-800">{scriptData.title}</h3>
                 </div>
+
+                {/* 调试信息区域 */}
+                <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-300 rounded-lg">
+                  <h4 className="font-semibold text-blue-800 mb-2">📝 调试信息（角色检查）</h4>
+                  <div className="text-sm">
+                    <p className="mb-1"><strong>角色列表：</strong>
+                      {scriptData.characters && scriptData.characters.length > 0
+                        ? scriptData.characters.map((c: any) => c.name).join('、')
+                        : '（无）'
+                      }
+                    </p>
+                    <p className="text-gray-600 text-xs">如果这里显示的不是您选择的角色（如蜘蛛侠），说明剧本生成时角色替换失败。</p>
+                  </div>
+                </div>
+
                 {scriptData.panels.map((panel, index) => (
                   <div key={panel.panel_number} className="mb-4 p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-gray-700 mb-2">第{index + 1}格</h4>
                     <p className="text-sm text-gray-600 mb-1"><strong>场景：</strong>{panel.scene_description}</p>
-                    <p className="text-sm text-gray-600 mb-1"><strong>动作：</strong>{panel.character_action}</p>
-                    <p className="text-sm text-gray-600"><strong>对话：</strong>{panel.dialogue}</p>
+                    <p className="text-sm text-gray-600 mb-1"><strong>动作：</strong>{panel.character_action || panel.character_actions || '-'}</p>
+                    <p className="text-sm text-gray-600 mb-1"><strong>对话：</strong>{panel.dialogue}</p>
+
+                    {/* 显示visual_prompt（这是生成图片的关键！） */}
+                    <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded">
+                      <p className="text-xs"><strong>🎨 画面提示词：</strong></p>
+                      <p className="text-xs text-gray-700 break-words">{panel.visual_prompt || '（无）'}</p>
+                    </div>
                   </div>
                 ))}
                 <div className="mt-6 flex justify-between">

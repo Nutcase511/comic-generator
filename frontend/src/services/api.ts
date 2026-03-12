@@ -129,6 +129,12 @@ export const api = {
 
   // Generate script
   async generateScript(request: GenerateScriptRequest): Promise<GenerateScriptResponse> {
+    console.log('🔍 [API] 生成剧本请求:', request)
+    console.log('  - input_type:', request.input_type)
+    console.log('  - input_text:', request.input_text?.substring(0, 100))
+    console.log('  - character_id:', request.character_id)
+    console.log('  - style:', request.style)
+
     const response = await fetch(`${API_BASE_URL}/script/generate`, {
       method: 'POST',
       headers: {
@@ -136,7 +142,16 @@ export const api = {
       },
       body: JSON.stringify(request),
     })
-    return response.json()
+
+    const result = await response.json()
+    console.log('✅ [API] 剧本生成响应:', result)
+
+    if (result.data && result.data.panels) {
+      console.log('📝 [API] 生成的角色:', result.data.characters?.map((c: any) => c.name))
+      console.log('📝 [API] 第1格的visual_prompt:', result.data.panels[0]?.visual_prompt?.substring(0, 200))
+    }
+
+    return result
   },
 
   // Generate images
