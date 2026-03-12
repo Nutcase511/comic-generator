@@ -30,14 +30,14 @@ export default function InputPanel({ onNext }: InputPanelProps) {
   const [scriptGenStep, setScriptGenStep] = useState<'thinking' | 'writing' | 'polishing'>('thinking')
   const [characters] = useState([
     { id: 'wukong', name: '孙悟空', source: '西游记' },
-    { id: 'ironman', name: '钢铁侠', source: '漫威' },
+    { id: 'iron_man', name: '钢铁侠', source: '漫威' },
     { id: 'luffy', name: '路飞', source: '海贼王' },
     { id: 'nobita', name: '大雄', source: '哆啦A梦' },
     { id: 'conan', name: '柯南', source: '名侦探柯南' },
-    { id: 'harry', name: '哈利波特', source: '哈利波特' },
+    { id: 'harry_potter', name: '哈利·波特', source: '哈利波特' },
     { id: 'goku', name: '悟空', source: '龙珠' },
     { id: 'elsa', name: '艾莎', source: '冰雪奇缘' },
-    { id: 'spiderman', name: '蜘蛛侠', source: '漫威' },
+    { id: 'spider_man', name: '蜘蛛侠', source: '漫威' },
     { id: 'doraemon', name: '哆啦A梦', source: '哆啦A梦' },
   ])
 
