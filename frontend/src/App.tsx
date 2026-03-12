@@ -309,20 +309,6 @@ function App() {
                   <h3 className="text-xl font-semibold text-gray-800">{scriptData.title}</h3>
                 </div>
 
-                {/* 调试信息区域 */}
-                <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-300 rounded-lg">
-                  <h4 className="font-semibold text-blue-800 mb-2">📝 调试信息（角色检查）</h4>
-                  <div className="text-sm">
-                    <p className="mb-1"><strong>角色列表：</strong>
-                      {scriptData.characters && scriptData.characters.length > 0
-                        ? scriptData.characters.map((c: any) => c.name).join('、')
-                        : '（无）'
-                      }
-                    </p>
-                    <p className="text-gray-600 text-xs">如果这里显示的不是您选择的角色（如蜘蛛侠），说明剧本生成时角色替换失败。</p>
-                  </div>
-                </div>
-
                 {scriptData.panels.map((panel, index) => (
                   <div key={panel.panel_number} className="mb-4 p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-gray-700 mb-2">第{index + 1}格</h4>
