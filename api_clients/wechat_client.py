@@ -282,11 +282,11 @@ class WeChatClient:
             dialogue = panel.get("dialogue", "").replace("'", "'")
             color_start, color_end, border_color = panel_colors[i]
 
-            html_parts.append("<td style='width: 50%; padding: 10px; vertical-align: top; border: none;'>")
-            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 20px; background: linear-gradient(to right, {color_start}, {color_end}); height: 450px; display: flex; flex-direction: column; justify-content: space-between;'>")
+            html_parts.append("<td style='width: 50%; padding: 6px; vertical-align: top; border: none;'>")
+            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 12px; background: linear-gradient(to right, {color_start}, {color_end}); min-height: 400px; display: flex; flex-direction: column; justify-content: flex-start;'>")
 
             html_parts.append("<div>")
-            html_parts.append(f"<div style='font-weight: bold; color: #ffffff; margin-bottom: 15px; font-size: 18px; text-transform: uppercase; letter-spacing: 2px;'>PANEL {i+1:02d}</div>")
+            html_parts.append(f"<div style='font-weight: bold; color: #ffffff; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;'>PANEL {i+1:02d}</div>")
 
             # 使用上传后的图片URL，如果没有URL则使用本地路径
             if image_urls and i < len(image_urls) and image_urls[i]:
@@ -296,12 +296,12 @@ class WeChatClient:
             else:
                 img_src = "https://via.placeholder.com/300?text=Panel+" + str(i+1)
 
-            html_parts.append(f"<div style='background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-bottom: 15px;'>")
-            html_parts.append(f"<img src='{img_src}' style='width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block;' />")
+            html_parts.append(f"<div style='background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px; margin-bottom: 10px;'>")
+            html_parts.append(f"<img src='{img_src}' style='width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block;' />")
             html_parts.append("</div>")
             html_parts.append("</div>")
 
-            html_parts.append(f"<div style='background: rgba(255,255,255,0.9); border-left: 4px solid {border_color}; padding: 15px 20px; color: #2d3436; font-size: 16px; line-height: 1.8; text-align: left; border-radius: 8px; flex-grow: 1; display: flex; align-items: center;'>")
+            html_parts.append(f"<div style='background: rgba(255,255,255,0.9); border-left: 4px solid {border_color}; padding: 10px 12px; color: #2d3436; font-size: 13px; line-height: 1.6; text-align: left; border-radius: 8px;'>")
             html_parts.append(dialogue)
             html_parts.append("</div>")
 
@@ -310,17 +310,17 @@ class WeChatClient:
         html_parts.append("</tr></table>")
 
         # 第二行：panel 3 和 4
-        html_parts.append("<table style='width: 100%; border-collapse: collapse; border: none; margin-top: 20px;'><tr>")
+        html_parts.append("<table style='width: 100%; border-collapse: collapse; border: none; margin-top: 12px;'><tr>")
         for i in [2, 3]:
             panel = script_data.get("panels", [])[i]
             dialogue = panel.get("dialogue", "").replace("'", "'")
             color_start, color_end, border_color = panel_colors[i]
 
-            html_parts.append("<td style='width: 50%; padding: 10px; vertical-align: top; border: none;'>")
-            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 20px; background: linear-gradient(to right, {color_start}, {color_end}); height: 450px; display: flex; flex-direction: column; justify-content: space-between;'>")
+            html_parts.append("<td style='width: 50%; padding: 6px; vertical-align: top; border: none;'>")
+            html_parts.append(f"<div style='text-align: center; border-radius: 12px; padding: 12px; background: linear-gradient(to right, {color_start}, {color_end}); min-height: 400px; display: flex; flex-direction: column; justify-content: flex-start;'>")
 
             html_parts.append("<div>")
-            html_parts.append(f"<div style='font-weight: bold; color: #ffffff; margin-bottom: 15px; font-size: 18px; text-transform: uppercase; letter-spacing: 2px;'>PANEL {i+1:02d}</div>")
+            html_parts.append(f"<div style='font-weight: bold; color: #ffffff; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;'>PANEL {i+1:02d}</div>")
 
             # 使用上传后的图片URL，如果没有URL则使用本地路径
             if image_urls and i < len(image_urls) and image_urls[i]:
@@ -330,12 +330,12 @@ class WeChatClient:
             else:
                 img_src = "https://via.placeholder.com/300?text=Panel+" + str(i+1)
 
-            html_parts.append(f"<div style='background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-bottom: 15px;'>")
-            html_parts.append(f"<img src='{img_src}' style='width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block;' />")
+            html_parts.append(f"<div style='background: rgba(255,255,255,0.3); padding: 8px; border-radius: 10px; margin-bottom: 10px;'>")
+            html_parts.append(f"<img src='{img_src}' style='width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block;' />")
             html_parts.append("</div>")
             html_parts.append("</div>")
 
-            html_parts.append(f"<div style='background: rgba(255,255,255,0.9); border-left: 4px solid {border_color}; padding: 15px 20px; color: #2d3436; font-size: 16px; line-height: 1.8; text-align: left; border-radius: 8px; flex-grow: 1; display: flex; align-items: center;'>")
+            html_parts.append(f"<div style='background: rgba(255,255,255,0.9); border-left: 4px solid {border_color}; padding: 10px 12px; color: #2d3436; font-size: 13px; line-height: 1.6; text-align: left; border-radius: 8px;'>")
             html_parts.append(dialogue)
             html_parts.append("</div>")
 
@@ -411,7 +411,7 @@ class WeChatClient:
         html_parts.append("<div style='padding: 20px; background-color: #f8f9fa;'>")
 
         script_prompt = script_data.get("script_generation_prompt", "悟空，AI，爆笑日常，友谊，科技，可爱Q版风格")
-        html_parts.append(f"<pre style='background-color: #2c3e50; color: #abb2bf; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.8; font-family: monospace; margin: 0;'>")
+        html_parts.append(f"<pre style='background-color: #2c3e50; color: #abb2bf; padding: 15px; border-radius: 8px; overflow-wrap: break-word; white-space: pre-wrap; word-wrap: break-word; word-break: break-word; font-size: 13px; line-height: 1.6; font-family: monospace; margin: 0;'>")
         html_parts.append(script_prompt)
         html_parts.append("</pre>")
 
@@ -430,7 +430,7 @@ class WeChatClient:
         html_parts.append("<div style='padding: 20px; background-color: #f8f9fa;'>")
 
         char_prompt = script_data.get("character_generation_prompt", "悟空可爱Q版，绿色战袍，猴耳朵；AI小智，白色机器人，红色头部")
-        html_parts.append(f"<pre style='background-color: #2c3e50; color: #abb2bf; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.8; font-family: monospace; margin: 0;'>")
+        html_parts.append(f"<pre style='background-color: #2c3e50; color: #abb2bf; padding: 15px; border-radius: 8px; overflow-wrap: break-word; white-space: pre-wrap; word-wrap: break-word; word-break: break-word; font-size: 13px; line-height: 1.6; font-family: monospace; margin: 0;'>")
         html_parts.append(char_prompt)
         html_parts.append("</pre>")
 
